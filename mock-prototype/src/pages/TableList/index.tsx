@@ -127,6 +127,30 @@ const TableList: React.FC = () => {
       },
     },
     {
+      title: <FormattedMessage id="pages.searchTable.timestamp" defaultMessage="Timestamp" />,
+      sorter: true,
+      dataIndex: 'updatedAt',
+      valueType: 'dateTime',
+      renderFormItem: (item, { defaultRender, ...rest }, form) => {
+        const status = form.getFieldValue('status');
+        if (`${status}` === '0') {
+          return false;
+        }
+        if (`${status}` === '3') {
+          return (
+            <Input
+              {...rest}
+              placeholder={intl.formatMessage({
+                id: 'pages.searchTable.exception',
+                defaultMessage: 'Please enter the reason for the exception!',
+              })}
+            />
+          );
+        }
+        return defaultRender(item);
+      },
+    },
+    {
       title: <FormattedMessage id="pages.searchTable.titleDesc" defaultMessage="Description" />,
       dataIndex: 'desc',
       valueType: 'textarea',
@@ -181,35 +205,6 @@ const TableList: React.FC = () => {
         },
       },
     },
-    {
-      title: (
-        <FormattedMessage
-          id="pages.searchTable.titleUpdatedAt"
-          defaultMessage="Last scheduled time"
-        />
-      ),
-      sorter: true,
-      dataIndex: 'updatedAt',
-      valueType: 'dateTime',
-      renderFormItem: (item, { defaultRender, ...rest }, form) => {
-        const status = form.getFieldValue('status');
-        if (`${status}` === '0') {
-          return false;
-        }
-        if (`${status}` === '3') {
-          return (
-            <Input
-              {...rest}
-              placeholder={intl.formatMessage({
-                id: 'pages.searchTable.exception',
-                defaultMessage: 'Please enter the reason for the exception!',
-              })}
-            />
-          );
-        }
-        return defaultRender(item);
-      },
-    },
     // {
     //   title: <FormattedMessage id="pages.searchTable.titleOption" defaultMessage="Operating" />,
     //   dataIndex: 'option',
@@ -237,7 +232,7 @@ const TableList: React.FC = () => {
   return (
     <PageContainer
       content={intl.formatMessage({
-        id: 'pages.admin.subPage.title',
+        id: 'pages.admin.admin.logs.title',
         defaultMessage: 'This page can only be viewed by Admin.',
       })}
     >
@@ -249,7 +244,7 @@ const TableList: React.FC = () => {
         actionRef={actionRef}
         rowKey="key"
         search={{
-          labelWidth: 126,
+          labelWidth: 90,
         }}
         // toolBarRender={() => [
         //   <Button

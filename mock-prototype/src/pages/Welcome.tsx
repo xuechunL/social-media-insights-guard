@@ -1,6 +1,7 @@
+import access from '@/access';
 import { PageContainer } from '@ant-design/pro-components';
 import { useModel } from '@umijs/max';
-import { Card, theme } from 'antd';
+import { Card, theme, Typography } from 'antd';
 import React from 'react';
 
 /**
@@ -12,7 +13,7 @@ const InfoCard: React.FC<{
   title: string;
   index: number;
   desc: string;
-  href: string;
+  href?: string;
 }> = ({ title, href, index, desc }) => {
   const { useToken } = theme;
 
@@ -28,7 +29,7 @@ const InfoCard: React.FC<{
         color: token.colorTextSecondary,
         lineHeight: '22px',
         padding: '16px 19px',
-        minWidth: '220px',
+        minWidth: '300px',
         flex: 1,
       }}
     >
@@ -69,25 +70,24 @@ const InfoCard: React.FC<{
         style={{
           fontSize: '14px',
           color: token.colorTextSecondary,
-          textAlign: 'justify',
+          // textAlign: 'justify',
           lineHeight: '22px',
           marginBottom: 8,
         }}
       >
         {desc}
       </div>
-      <a href={href} target="_blank" rel="noreferrer">
-        了解更多 {'>'}
-      </a>
+      {href && <a href={href}>Learn More {'>'}</a>}
     </div>
   );
 };
 
-// TODO: Add a description for the dashboard - tutorials
-
 const Welcome: React.FC = () => {
   const { token } = theme.useToken();
   const { initialState } = useModel('@@initialState');
+  console.log(access(initialState));
+  const canAdmin = access(initialState).canAdmin;
+
   return (
     <PageContainer>
       <Card
@@ -112,13 +112,15 @@ const Welcome: React.FC = () => {
               "url('https://gw.alipayobjects.com/mdn/rms_a9745b/afts/img/A*BuFmQqsB2iAAAAAAAAAAAAAAARQnAQ')",
           }}
         >
+          <Typography.Title level={1}>Welcome to Social Media Insights</Typography.Title>
           <div
             style={{
               fontSize: '20px',
               color: token.colorTextHeading,
             }}
           >
-            TODO: Welcome to Social Media Insights
+            Your one-stop platform for real-time monitoring, data exploration, and workspace
+            management.
           </div>
           <p
             style={{
@@ -127,11 +129,14 @@ const Welcome: React.FC = () => {
               lineHeight: '22px',
               marginTop: 16,
               marginBottom: 32,
-              width: '65%',
+              // width: '80%',
             }}
           >
-            Social Media Insights 是一个整合了 umi，Ant Design 和 ProComponents
-            的脚手架方案。致力于在设计规范和基础组件的基础上，继续向上构建，提炼出典型模板/业务组件/配套设计资源，进一步提升企业级中后台产品设计研发过程中的『用户』和『设计者』的体验。
+            Social Media Insights is designed to empower users with the tools they need to analyze
+            and monitor social media data in real time. Our platform provides comprehensive
+            solutions for both non-expert users and advanced data analysts to extract meaningful
+            insights from social media interactions. Whether you’re tracking user engagement,
+            monitoring trends, or visualizing data, Social Media Insights has you covered.
           </p>
           <div
             style={{
@@ -142,22 +147,40 @@ const Welcome: React.FC = () => {
           >
             <InfoCard
               index={1}
-              href="https://umijs.org/docs/introduce/introduce"
-              title="Non-expert Mode"
-              desc="umi 是一个可扩展的企业级前端应用框架,umi 以路由为基础的，同时支持配置式路由和约定式路由，保证路由的功能完备，并以此进行功能扩展。"
+              href="/dashboard/monitor"
+              title="Monitor Mode"
+              desc="Monitor Mode provides (near) real-time monitoring and visualization interfaces designed for non-expert users. Easily track social media metrics, user behavior, and trends with intuitive, pre-built dashboards. Stay ahead of the curve with instant updates and actionable insights."
             />
             <InfoCard
               index={2}
               title="Exploration Mode"
-              href="https://ant.design"
-              desc="antd 是基于 Ant Design 设计体系的 React UI 组件库，主要用于研发企业级中后台产品。"
+              href="/dashboard/analysis"
+              desc="Exploration Mode leverages the powerful capabilities of Apache Superset for data exploration and visualization. Connect your custom databases and datasets to create sophisticated visualizations and perform in-depth analyses. Unlock the potential of your data with flexible and customizable dashboards"
             />
             <InfoCard
               index={3}
               title="Workplace Mode"
-              href="https://procomponents.ant.design"
-              desc="ProComponents 是一个基于 Ant Design 做了更高抽象的模板组件，以 一个组件就是一个页面为开发理念，为中后台开发带来更好的体验。"
+              href="/dashboard/workplace"
+              desc="Workplace Mode integrates Observable Notebooks, allowing engineers to create fast, beautiful data apps, dashboards, and reports directly from the command line. Customize and share insights efficiently. This mode is perfect for those who need a programmable and dynamic environment for data analysis."
             />
+
+            {canAdmin && (
+              <InfoCard
+                index={4}
+                title="Admin Logs"
+                href="/admin/logs"
+                desc="Configure alerts and settings for the Monitor view. Customize thresholds, notification preferences, and alerting mechanisms to stay informed about critical events in real time. Tailor the monitoring experience to fit your specific needs and ensure prompt responses to important metrics."
+              />
+            )}
+
+            {canAdmin && (
+              <InfoCard
+                index={5}
+                title="Admin Alerts"
+                href="/admin/settings"
+                desc="Workplace Mode integrates Observable Notebooks, allowing engineers to create fast, beautiful data apps, dashboards, and reports directly from the command line. Customize and share insights efficiently. This mode is perfect for those who need a programmable and dynamic environment for data analysis."
+              />
+            )}
           </div>
         </div>
       </Card>

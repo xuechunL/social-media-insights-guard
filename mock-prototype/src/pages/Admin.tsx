@@ -8,20 +8,20 @@ const Admin: React.FC = () => {
   return (
     <PageContainer
       content={intl.formatMessage({
-        id: 'pages.admin.subPage.title',
+        id: 'pages.admin.admin.alerts.title',
         defaultMessage: 'This page can only be viewed by Admin.',
       })}
     >
       <Flex gap="small">
-        <Card title="Account Info" style={{ width: '50%' }}>
+        <Card title="Alerts" style={{ width: '60%' }}>
           <Typography.Title level={2} style={{ textAlign: 'center' }}>
-            TODO: Admin Account Info
+            TODO: Alerts list
           </Typography.Title>
         </Card>
 
-        <Card title="Users List" style={{ width: '50%' }}>
+        <Card title="Settings" style={{ width: '40%' }}>
           <Typography.Title level={2} style={{ textAlign: 'center' }}>
-            TODO: All Users List
+            TODO: User Settings
           </Typography.Title>
         </Card>
       </Flex>

@@ -28,12 +28,15 @@ export default {
   'pages.dashboard.monitor.title':
     'This is the (near) real-time monitoring and visualization interface designed for non-expert users.',
   'pages.dashboard.workplace.title':
-    'This is the Observable Notebooks view for engineers, enabling the creation of fast, beautiful data apps, dashboards, and reports directly from the command line.',
+    'This is the Observable Notebooks view for engineers, enabling the creation of fast, beautiful data projects, dashboards, and reports directly from the command line.',
   'pages.dashboard.analysis.title':
     'This is the Apache Superset view for data exploration and data visualization with your pre-defined datasets and custom database.',
   'pages.404.subTitle': 'Sorry, the page you visited does not exist.',
   'pages.404.buttonText': 'Back Home',
-  'pages.admin.subPage.title': 'This page can only be viewed by Admin.',
+  'pages.admin.admin.logs.title':
+    'This is the action logs page. This page can only be viewed by Admin.',
+  'pages.admin.admin.alerts.title':
+    'This is the alerts and settings page for monitoring. This page can only be viewed by Admin.',
   'pages.admin.subPage.alertMessage':
     'Umi ui is now released, welcome to use npm run ui to start the experience.',
   'pages.searchTable.createForm.newRule': 'New Rule',
@@ -61,6 +64,7 @@ export default {
   'pages.searchTable.nameStatus.online': 'online',
   'pages.searchTable.nameStatus.abnormal': 'abnormal',
   'pages.searchTable.titleUpdatedAt': 'Last Scheduled at',
+  'pages.searchTable.timestamp': 'Timestamp',
   'pages.searchTable.exception': 'Please enter the reason for the exception!',
   'pages.searchTable.titleOption': 'Option',
   'pages.searchTable.config': 'Configuration',

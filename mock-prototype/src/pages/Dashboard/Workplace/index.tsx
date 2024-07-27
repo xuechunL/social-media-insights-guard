@@ -199,7 +199,7 @@ const Workplace: React.FC = () => {
       content={intl.formatMessage({
         id: 'pages.dashboard.workplace.title',
         defaultMessage:
-          'This is the Observable Notebooks view for engineers, enabling the creation of fast, beautiful data apps, dashboards, and reports directly from the command line.',
+          'This is the Observable Notebooks view for engineers, enabling the creation of fast, beautiful data projects, dashboards, and reports directly from the command line.',
       })}
     >
       {contextHolder}
