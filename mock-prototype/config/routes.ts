@@ -70,11 +70,17 @@ export default [
         component: './TableList',
       },
       {
-        path: '/admin/settings',
-        name: 'settings',
+        path: '/admin/alerts',
+        name: 'alerts',
         component: './Admin',
       },
     ],
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    icon: 'profile',
+    component: './Profile',
   },
   {
     path: '/',

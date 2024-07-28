@@ -4,6 +4,7 @@ export default {
   'menu.home': 'Home',
   'menu.admin': 'Admin',
   'menu.admin.settings': 'Settings',
+  'menu.admin.alerts': 'Alerts',
   'menu.admin.logs': 'Logs',
   'menu.login': 'Login',
   'menu.logs': 'Logs',

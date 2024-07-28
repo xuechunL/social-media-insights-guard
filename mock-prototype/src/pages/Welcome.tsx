@@ -169,7 +169,7 @@ const Welcome: React.FC = () => {
                 index={4}
                 title="Admin Logs"
                 href="/admin/logs"
-                desc="Configure alerts and settings for the Monitor view. Customize thresholds, notification preferences, and alerting mechanisms to stay informed about critical events in real time. Tailor the monitoring experience to fit your specific needs and ensure prompt responses to important metrics."
+                desc="Access detailed logs to monitor system activities, user actions, and data access. Ensure the integrity and security of your data with comprehensive log reports."
               />
             )}
 
@@ -178,7 +178,7 @@ const Welcome: React.FC = () => {
                 index={5}
                 title="Admin Alerts"
                 href="/admin/settings"
-                desc="Workplace Mode integrates Observable Notebooks, allowing engineers to create fast, beautiful data apps, dashboards, and reports directly from the command line. Customize and share insights efficiently. This mode is perfect for those who need a programmable and dynamic environment for data analysis."
+                desc="Configure alerts for the Monitor view. Customize thresholds, notification preferences, and alerting mechanisms to stay informed about critical events in real time."
               />
             )}
           </div>

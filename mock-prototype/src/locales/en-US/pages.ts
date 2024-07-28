@@ -39,6 +39,7 @@ export default {
     'This is the alerts and settings page for monitoring. This page can only be viewed by Admin.',
   'pages.admin.subPage.alertMessage':
     'Umi ui is now released, welcome to use npm run ui to start the experience.',
+  'pages.profile.title': 'Profile Settings',
   'pages.searchTable.createForm.newRule': 'New Rule',
   'pages.searchTable.updateForm.ruleConfig': 'Rule configuration',
   'pages.searchTable.updateForm.basicConfig': 'Basic Information',
