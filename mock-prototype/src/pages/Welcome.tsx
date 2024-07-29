@@ -85,7 +85,6 @@ const InfoCard: React.FC<{
 const Welcome: React.FC = () => {
   const { token } = theme.useToken();
   const { initialState } = useModel('@@initialState');
-  console.log(access(initialState));
   const canAdmin = access(initialState).canAdmin;
 
   return (

@@ -67,12 +67,12 @@ export default [
       {
         path: '/admin/logs',
         name: 'logs',
-        component: './TableList',
+        component: './Admin/TableList',
       },
       {
         path: '/admin/alerts',
         name: 'alerts',
-        component: './Admin',
+        component: './Admin/Alerts',
       },
     ],
   },
@@ -94,6 +94,6 @@ export default [
   {
     path: '/notebook',
     layout: false,
-    component: './Dashboard/ObservableView/NotebookFullScreen',
+    component: './Dashboard/Workplace/ObservableView/NotebookFullscreen',
   },
 ];

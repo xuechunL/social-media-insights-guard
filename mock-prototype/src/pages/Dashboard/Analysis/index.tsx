@@ -2,7 +2,7 @@ import { PageContainer } from '@ant-design/pro-components';
 import { useIntl } from '@umijs/max';
 import { Alert, Card } from 'antd';
 import React from 'react';
-import SupersetRedirect from '../SupersetView';
+import SupersetRedirect from './SupersetRedirect';
 
 const Analysis: React.FC = () => {
   const intl = useIntl();

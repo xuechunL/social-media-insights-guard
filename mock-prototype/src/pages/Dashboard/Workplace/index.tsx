@@ -28,9 +28,9 @@ import {
 } from 'antd';
 import { DatePickerProps, TabsProps } from 'antd/lib';
 import React, { useState } from 'react';
-import ObservableEditor from '../ObservableView/ObservableEditor';
-import ObservableEmbed from '../ObservableView/ObservableEmbed';
-import NotebooksList from '../ObservableView/SavedNotebooks';
+import ObservableEditor from './ObservableView/ObservableEditor';
+import ObservableEmbed from './ObservableView/ObservableEmbed';
+import NotebooksList from './ObservableView/SavedNotebooks';
 
 const { Option } = Select;
 const { RangePicker } = DatePicker;

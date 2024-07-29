@@ -1,34 +1,10 @@
+import access from '@/access';
 import { PageContainer } from '@ant-design/pro-components';
-import { useIntl } from '@umijs/max';
-import type { FormInstance } from 'antd';
+import { useIntl, useModel } from '@umijs/max';
 import { Button, Card, Form, Input, Select, Space } from 'antd';
 import React from 'react';
 
 const { Option } = Select;
-
-interface SubmitButtonProps {
-  form: FormInstance;
-}
-
-const SubmitButton: React.FC<React.PropsWithChildren<SubmitButtonProps>> = ({ form, children }) => {
-  const [submittable, setSubmittable] = React.useState<boolean>(false);
-
-  // Watch all values
-  const values = Form.useWatch([], form);
-
-  React.useEffect(() => {
-    form
-      .validateFields({ validateOnly: true })
-      .then(() => setSubmittable(true))
-      .catch(() => setSubmittable(false));
-  }, [form, values]);
-
-  return (
-    <Button type="primary" htmlType="submit" disabled={!submittable}>
-      {children}
-    </Button>
-  );
-};
 
 const formItemLayout = {
   labelCol: {
@@ -57,6 +33,7 @@ const tailFormItemLayout = {
 const Profile: React.FC = () => {
   const intl = useIntl();
   const [form] = Form.useForm();
+  const { initialState } = useModel('@@initialState');
 
   const prefixSelector = (
     <Form.Item name="prefix" noStyle>
@@ -83,6 +60,11 @@ const Profile: React.FC = () => {
           autoComplete="off"
           style={{ maxWidth: 600 }}
         >
+          <Form.Item label="Role">
+            <span className="ant-form-text">
+              {access(initialState).canAdmin ? 'Admin' : 'User'}
+            </span>
+          </Form.Item>
           <Form.Item name="name" label="Name" rules={[{ required: true }]}>
             <Input defaultValue="Serati Ma" />
           </Form.Item>
@@ -100,18 +82,27 @@ const Profile: React.FC = () => {
             ]}
             hasFeedback
           >
-            <Input.Password />
+            <Input.Password defaultValue="admin" />
           </Form.Item>
           <Form.Item
             name="phone"
             label="Phone Number"
             rules={[{ required: true, message: 'Please input your phone number!' }]}
           >
-            <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
+            <Input
+              addonBefore={prefixSelector}
+              style={{ width: '100%' }}
+              defaultValue="0712345679"
+            />
           </Form.Item>
-          <Form.Item {...tailFormItemLayout}>
+          <Form.Item name="bio" label="Bio">
+            <Input.TextArea rows={6} defaultValue="Data Analyst and Data Scientist" />
+          </Form.Item>
+          <Form.Item name="actions" {...tailFormItemLayout}>
             <Space>
-              <SubmitButton form={form}>Submit</SubmitButton>
+              <Button type="primary" htmlType="submit">
+                Submit
+              </Button>
               <Button htmlType="reset">Reset</Button>
             </Space>
           </Form.Item>

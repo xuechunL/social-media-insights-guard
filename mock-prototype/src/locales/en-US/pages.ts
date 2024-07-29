@@ -41,7 +41,7 @@ export default {
     'Umi ui is now released, welcome to use npm run ui to start the experience.',
   'pages.profile.title': 'Profile Settings',
   'pages.searchTable.createForm.newRule': 'New Rule',
-  'pages.searchTable.updateForm.ruleConfig': 'Rule configuration',
+  'pages.searchTable.updateForm.ruleConfig': 'Rule Configuration',
   'pages.searchTable.updateForm.basicConfig': 'Basic Information',
   'pages.searchTable.updateForm.ruleName.nameLabel': 'Action',
   'pages.searchTable.updateForm.ruleName.nameRules': 'Please enter the action name!',
