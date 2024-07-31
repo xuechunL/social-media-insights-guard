@@ -160,13 +160,7 @@ const NotebooksList: React.FC<{ onCreate: () => void }> = ({ onCreate }) => {
     <Card>
       <Flex wrap style={{ marginBottom: 16 }} justify="flex-end">
         <Space>
-          <Button
-            type="primary"
-            icon={<PlusOutlined />}
-            onClick={() => {
-              onCreate();
-            }}
-          >
+          <Button type="primary" icon={<PlusOutlined />} onClick={onCreate}>
             New Notebook
           </Button>
           <Tooltip placement="top" title="Refresh Table">

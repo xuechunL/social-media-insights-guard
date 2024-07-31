@@ -116,24 +116,48 @@ const Workplace: React.FC = () => {
               </>
             }
             actions={[
-              <Button key="run" type="link" onClick={handleRun} icon={<CodeOutlined />}>
+              <Space key="run" onClick={handleRun}>
+                <CodeOutlined />
                 RUN
-              </Button>,
-              <Button key="save" type="text" onClick={handleSave} icon={<SaveOutlined />}>
+              </Space>,
+              <Space key="save" onClick={handleSave}>
+                <SaveOutlined />
                 SAVE
-              </Button>,
-              <Button key="settings" type="text" icon={<DashboardOutlined />}>
-                Config to Monitor
-              </Button>,
+              </Space>,
+              // <Tooltip key="settings" title="Add the notebook to overview">
+              //   <Button type="text" icon={<DashboardOutlined />}>
+              //     Configure
+              //   </Button>
+              // </Tooltip>,
             ]}
             extra={<a href="/notebook">Enter Fullscreen</a>}
             style={{ width: '50%' }}
+            styles={{
+              body: {
+                height: 462,
+              },
+            }}
           >
             <ObservableEditor />
           </Card>
           <Card
             title="Notebook Results"
             style={{ width: '50%' }}
+            styles={{
+              body: {
+                height: 462,
+              },
+            }}
+            actions={
+              notebook
+                ? [
+                    <Space key="config" onClick={() => {}}>
+                      <DashboardOutlined />
+                      Configure to Overview
+                    </Space>,
+                  ]
+                : []
+            }
             extra={
               notebook ? (
                 <a href="http://localhost:3000" target="_blank" rel="noreferrer noopener">
@@ -163,16 +187,8 @@ const Workplace: React.FC = () => {
       children: (
         <Flex gap="small" vertical>
           <Card>
-            <Flex justify="space-between">
-              <Space>
-                <Form layout="inline" autoComplete="off">
-                  <Form.Item name="name" label="Name">
-                    <Input allowClear />
-                  </Form.Item>
-                  <Form.Item name="tags" label="Tags">
-                    <Input allowClear />
-                  </Form.Item>
-                </Form>
+            <Flex wrap gap="middle">
+              <Flex gap="small">
                 <Select value={type} onChange={setType}>
                   <Option value="time">Time</Option>
                   <Option value="date">Date</Option>
@@ -183,11 +199,23 @@ const Workplace: React.FC = () => {
                 </Select>
                 <PickerWithType type={type} onChange={(value) => console.log(value)} />
                 <RangePicker />
-              </Space>
-              <Space>
-                <Button>Reset</Button>
-                <Button type="primary">Search</Button>
-              </Space>
+              </Flex>
+              <Flex gap="small">
+                <Space>
+                  <Form layout="inline" autoComplete="off">
+                    <Form.Item name="name" label="Name">
+                      <Input allowClear />
+                    </Form.Item>
+                    <Form.Item name="tags" label="Tags">
+                      <Input allowClear />
+                    </Form.Item>
+                  </Form>
+                </Space>
+                <Space>
+                  <Button type="primary">Search</Button>
+                  <Button>Reset</Button>
+                </Space>
+              </Flex>
             </Flex>
           </Card>
 
@@ -208,7 +236,14 @@ const Workplace: React.FC = () => {
         title="Workplace Mode"
         desc="Workplace Mode integrates Observable Notebooks, allowing engineers to create fast, beautiful data visualization charts, dashboards, and reports directly from the command line."
       />
-      <Tabs accessKey={activeKey} items={items} onChange={handleTabChange} />
+      <Tabs
+        style={{
+          marginTop: '-1em',
+        }}
+        activeKey={activeKey}
+        items={items}
+        onChange={handleTabChange}
+      />
       <Modal
         open={open}
         title="Save the Notebook"

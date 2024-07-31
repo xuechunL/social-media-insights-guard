@@ -5,7 +5,7 @@ import {
   QuestionCircleOutlined,
   SaveOutlined,
 } from '@ant-design/icons';
-import { Button, Card, ConfigProvider, Empty, Flex, Tooltip, Typography } from 'antd';
+import { Button, Card, ConfigProvider, Empty, Flex, Space, Tooltip, Typography } from 'antd';
 import React, { useState } from 'react';
 import ObservableEditor from './ObservableEditor';
 import ObservableEmbed from './ObservableEmbed';
@@ -33,8 +33,8 @@ const Fullscreen: React.FC = () => {
         },
       }}
     >
-      <Flex justify="flex-end" style={{ marginBottom: '1rem' }}>
-        <Button type="link" ghost icon={<CloseOutlined />} onClick={() => history.back()}>
+      <Flex justify="flex-end" style={{ marginBottom: '0.5rem' }}>
+        <Button type="link" icon={<CloseOutlined />} onClick={() => history.back()}>
           Close
         </Button>
       </Flex>
@@ -52,19 +52,22 @@ const Fullscreen: React.FC = () => {
             </>
           }
           actions={[
-            <Button key="run" type="link" onClick={handleRun} icon={<CodeOutlined />}>
+            <Space key="run" onClick={handleRun}>
+              <CodeOutlined />
               RUN
-            </Button>,
-            <Button key="save" type="text" onClick={handleSave} icon={<SaveOutlined />}>
+            </Space>,
+            <Space key="save" onClick={handleSave}>
+              <SaveOutlined />
               SAVE
-            </Button>,
-            <Button key="settings" type="text" icon={<DashboardOutlined />}>
-              Config to Monitor
-            </Button>,
+            </Space>,
+            // <Button key="settings" type="text" icon={<DashboardOutlined />}>
+            //   Configure
+            // </Button>,
           ]}
           style={{ width: '50%' }}
+          styles={{ body: { height: 624 } }}
         >
-          <ObservableEditor height="500px" />
+          <ObservableEditor height="516px" />
         </Card>
         <Card
           title="Notebook Results"
@@ -76,9 +79,19 @@ const Fullscreen: React.FC = () => {
               </a>
             ) : null
           }
+          actions={
+            notebook
+              ? [
+                  <Space key="config" onClick={() => {}}>
+                    <DashboardOutlined />
+                    Configure to Overview
+                  </Space>,
+                ]
+              : []
+          }
         >
           {notebook ? (
-            <ObservableEmbed heigh="600px" />
+            <ObservableEmbed heigh="576px" />
           ) : (
             <Empty
               image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
