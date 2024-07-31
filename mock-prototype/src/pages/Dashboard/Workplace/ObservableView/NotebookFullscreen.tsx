@@ -1,9 +1,9 @@
 import {
   CloseOutlined,
   CodeOutlined,
+  DashboardOutlined,
   QuestionCircleOutlined,
   SaveOutlined,
-  SettingOutlined,
 } from '@ant-design/icons';
 import { Button, Card, ConfigProvider, Empty, Flex, Tooltip, Typography } from 'antd';
 import React, { useState } from 'react';
@@ -27,9 +27,9 @@ const Fullscreen: React.FC = () => {
       theme={{
         token: {
           // Seed Token
-          colorPrimary: '#20a7c9',
-          colorLink: '#20a7c9',
-          borderRadius: 4,
+          // colorPrimary: '#20a7c9',
+          // colorLink: '#20a7c9',
+          // borderRadius: 4,
         },
       }}
     >
@@ -58,13 +58,13 @@ const Fullscreen: React.FC = () => {
             <Button key="save" type="text" onClick={handleSave} icon={<SaveOutlined />}>
               SAVE
             </Button>,
-            <Button key="settings" type="text" icon={<SettingOutlined />}>
-              SETTINGS
+            <Button key="settings" type="text" icon={<DashboardOutlined />}>
+              Config to Monitor
             </Button>,
           ]}
           style={{ width: '50%' }}
         >
-          <ObservableEditor height="590px" />
+          <ObservableEditor height="500px" />
         </Card>
         <Card
           title="Notebook Results"
@@ -78,7 +78,7 @@ const Fullscreen: React.FC = () => {
           }
         >
           {notebook ? (
-            <ObservableEmbed heigh="700px" />
+            <ObservableEmbed heigh="600px" />
           ) : (
             <Empty
               image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"

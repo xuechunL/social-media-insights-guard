@@ -1,5 +1,4 @@
 import { UploadOutlined } from '@ant-design/icons';
-import { javascript } from '@codemirror/lang-javascript';
 import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
 import { languages } from '@codemirror/language-data';
 import CodeMirror from '@uiw/react-codemirror';
@@ -33,7 +32,7 @@ const ObservableEditor: React.FC<IProps> = ({ height }) => {
 
   return (
     <div>
-      <Flex wrap align="center" justify="space-between" style={{ marginBottom: '1rem' }}>
+      <Flex wrap align="flex-start" justify="space-between" style={{ marginBottom: '1rem' }}>
         <Space>
           <Typography.Text>Language:</Typography.Text>
           <Select
@@ -64,7 +63,7 @@ const ObservableEditor: React.FC<IProps> = ({ height }) => {
         value={code}
         height={height || '360px'}
         extensions={[
-          javascript({ jsx: true }),
+          // javascript({ jsx: true }),
           markdown({ base: markdownLanguage, codeLanguages: languages }),
         ]}
         onChange={onChange}

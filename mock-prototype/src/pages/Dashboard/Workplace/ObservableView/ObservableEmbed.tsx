@@ -5,7 +5,7 @@ const ObservableEmbed: React.FC<{ heigh?: string }> = ({ heigh }: { heigh?: stri
   return (
     <iframe
       width="100%"
-      height={heigh || '480'}
+      height={heigh || '480px'}
       frameBorder="0"
       src="http://localhost:3000"
     ></iframe>

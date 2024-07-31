@@ -1,12 +1,12 @@
 import NotebookTags from '@/components/NotebookTags';
+import { InfoCard } from '@/pages/Quickstart';
 import {
   CodeOutlined,
+  DashboardOutlined,
   QuestionCircleOutlined,
   SaveOutlined,
-  SettingOutlined,
 } from '@ant-design/icons';
 import { PageContainer } from '@ant-design/pro-components';
-import { useIntl } from '@umijs/max';
 import {
   Button,
   Card,
@@ -57,13 +57,15 @@ const PickerWithType = ({
 };
 
 const Workplace: React.FC = () => {
-  const intl = useIntl();
+  // const intl = useIntl();
   const [notebook, setNotebook] = useState<any>(null);
   const [type, setType] = useState<PickerType>('time');
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [messageApi, contextHolder] = message.useMessage();
   const [formValues, setFormValues] = useState<Values>();
   const [open, setOpen] = useState(false);
+
+  const [activeKey, setActiveKey] = useState<string>('1');
 
   const [form] = Form.useForm();
 
@@ -90,8 +92,9 @@ const Workplace: React.FC = () => {
     setOpen(true);
   };
 
-  const onChange = (key: string) => {
-    console.log(key);
+  const handleTabChange = (key: string) => {
+    console.log('key:', key);
+    setActiveKey(key);
   };
 
   const items: TabsProps['items'] = [
@@ -119,8 +122,8 @@ const Workplace: React.FC = () => {
               <Button key="save" type="text" onClick={handleSave} icon={<SaveOutlined />}>
                 SAVE
               </Button>,
-              <Button key="settings" type="text" icon={<SettingOutlined />}>
-                SETTINGS
+              <Button key="settings" type="text" icon={<DashboardOutlined />}>
+                Config to Monitor
               </Button>,
             ]}
             extra={<a href="/notebook">Enter Fullscreen</a>}
@@ -188,7 +191,11 @@ const Workplace: React.FC = () => {
             </Flex>
           </Card>
 
-          <NotebooksList />
+          <NotebooksList
+            onCreate={() => {
+              handleTabChange('1');
+            }}
+          />
         </Flex>
       ),
     },
@@ -196,14 +203,16 @@ const Workplace: React.FC = () => {
 
   return (
     <PageContainer
-      content={intl.formatMessage({
-        id: 'pages.dashboard.workplace.title',
-        defaultMessage:
-          'This is the Observable Notebooks view for engineers, enabling the creation of fast, beautiful data projects, dashboards, and reports directly from the command line.',
-      })}
+      content={
+        <InfoCard
+          // title="Workplace Mode"
+          href="https://observablehq.com/"
+          desc="Workplace Mode integrates Observable Notebooks, allowing engineers to create fast, beautiful data visualization charts, dashboards, and reports directly from the command line. Customize and share insights efficiently. This mode is perfect for those who need a programmable and dynamic environment for data analysis."
+        />
+      }
     >
       {contextHolder}
-      <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
+      <Tabs accessKey={activeKey} items={items} onChange={handleTabChange} />
       <Modal
         open={open}
         title="Save the Notebook"

@@ -1,11 +1,11 @@
-import { Button, Space, Typography } from 'antd';
+import { Button, Space, Spin, Typography } from 'antd';
 import { useEffect, useState } from 'react';
 
 const SupersetRedirect = () => {
-  const [countdown, setCountdown] = useState(3);
+  const [countdown, setCountdown] = useState(5);
 
   const handleRedirect = () => {
-    window.location.href = 'http://localhost:8088'; // Your Superset URL
+    window.location.href = 'http://localhost:8088/superset/dashboard/15/'; // Superset Dashboard URL
   };
 
   useEffect(() => {
@@ -27,12 +27,15 @@ const SupersetRedirect = () => {
 
   return (
     <Space direction="vertical" size="large" align="center" style={{ display: 'flex' }}>
-      <Button type="primary" onClick={handleRedirect}>
+      <Spin tip="Loading" style={{ marginTop: 32, marginBottom: 32 }}>
+        <Typography.Text>
+          You will be redirected to Apache Superset Dashboard automatically in {countdown} second
+          {countdown !== 1 && 's'}.
+        </Typography.Text>
+      </Spin>
+      <Button type="primary" onClick={handleRedirect} style={{ marginTop: 32 }}>
         Open Superset Dashboard Now
       </Button>
-      <Typography.Text>
-        You will be redirected automatically in {countdown} second{countdown !== 1 && 's'}.
-      </Typography.Text>
     </Space>
   );
 };

@@ -1,5 +1,8 @@
 // src/components/NotebooksList.tsx
 import {
+  DashboardOutlined,
+  DeleteOutlined,
+  DownloadOutlined,
   FacebookOutlined,
   LinkedinOutlined,
   PlusOutlined,
@@ -9,7 +12,7 @@ import {
   YoutubeOutlined,
 } from '@ant-design/icons';
 import type { TableProps } from 'antd';
-import { Button, Card, Flex, Popconfirm, Space, Table, Tag } from 'antd';
+import { Button, Card, Flex, Popconfirm, Space, Table, Tag, Tooltip } from 'antd';
 import React from 'react';
 
 interface DataType {
@@ -58,35 +61,35 @@ const columns: TableProps<DataType>['columns'] = [
     onFilter: (value, record) => record.name.includes(value as string),
     render: (_, { tags }) =>
       tags && tags.length ? (
-        <>
+        <Flex wrap gap="6px">
           {tags.map((_) => {
             if (!_) return null;
             const tag = _.toLowerCase();
 
             if (tag === 'twitter')
               return (
-                <Tag icon={<TwitterOutlined />} color="#55acee">
+                <Tag key={tag} icon={<TwitterOutlined />} color="#55acee">
                   Twitter
                 </Tag>
               );
 
             if (tag === 'facebook')
               return (
-                <Tag icon={<FacebookOutlined />} color="#3b5999">
+                <Tag key={tag} icon={<FacebookOutlined />} color="#3b5999">
                   Facebook
                 </Tag>
               );
 
             if (tag === 'youtube')
               return (
-                <Tag icon={<YoutubeOutlined />} color="#cd201f">
+                <Tag key={tag} icon={<YoutubeOutlined />} color="#cd201f">
                   Youtube
                 </Tag>
               );
 
             if (tag === 'linkedin')
               return (
-                <Tag icon={<LinkedinOutlined />} color="#55acee">
+                <Tag key={tag} icon={<LinkedinOutlined />} color="#55acee">
                   LinkedIn
                 </Tag>
               );
@@ -96,28 +99,32 @@ const columns: TableProps<DataType>['columns'] = [
               color = 'volcano';
             }
             return (
-              <Tag color={color} key={tag}>
+              <Tag key={tag} color={color}>
                 {tag.toUpperCase()}
               </Tag>
             );
           })}
-        </>
+        </Flex>
       ) : null,
   },
   {
     title: 'Action',
     key: 'action',
     render: () => (
-      <Space>
-        <a>Download</a>
+      <Space size="small">
+        <Tooltip placement="top" title="Download this Notebook" key="download">
+          <Button type="text" icon={<DownloadOutlined />}></Button>
+        </Tooltip>
+        <Tooltip placement="top" title="Config this Notebook to Monitor" key="config">
+          <Button type="text" icon={<DashboardOutlined />}></Button>
+        </Tooltip>
         <Popconfirm
+          key="delete"
           title="Delete the notebook"
           description="Are you sure to delete this notebook?"
           icon={<QuestionCircleOutlined style={{ color: '#ff4d4f' }} />}
         >
-          <a type="link" style={{ color: '#ff4d4f' }}>
-            Delete
-          </a>
+          <Button type="text" icon={<DeleteOutlined />} danger></Button>
         </Popconfirm>
       </Space>
     ),
@@ -148,15 +155,23 @@ const data: DataType[] = [
   },
 ];
 
-const NotebooksList: React.FC = () => {
+const NotebooksList: React.FC<{ onCreate: () => void }> = ({ onCreate }) => {
   return (
     <Card>
       <Flex wrap style={{ marginBottom: 16 }} justify="flex-end">
         <Space>
-          <Button type="primary" icon={<PlusOutlined />}>
+          <Button
+            type="primary"
+            icon={<PlusOutlined />}
+            onClick={() => {
+              onCreate();
+            }}
+          >
             New Notebook
           </Button>
-          <Button type="text" icon={<ReloadOutlined />}></Button>
+          <Tooltip placement="top" title="Refresh Table">
+            <Button type="text" icon={<ReloadOutlined />}></Button>
+          </Tooltip>
         </Space>
       </Flex>
       <Table dataSource={data} columns={columns} />

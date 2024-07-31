@@ -1,9 +1,15 @@
 import { removeRule, rule, updateRule } from '@/services/ant-design-pro/api';
-import { PlusOutlined, QuestionCircleOutlined } from '@ant-design/icons';
+import {
+  BellOutlined,
+  DeleteOutlined,
+  EditOutlined,
+  PlusOutlined,
+  QuestionCircleOutlined,
+} from '@ant-design/icons';
 import type { ActionType, ProColumns, ProDescriptionsItemProps } from '@ant-design/pro-components';
 import { FooterToolbar, ProDescriptions, ProTable } from '@ant-design/pro-components';
 // import { FormattedMessage, useIntl } from '@umijs/max';
-import { Button, Drawer, Flex, message, Popconfirm, Tag, Tooltip } from 'antd';
+import { Button, Drawer, message, Popconfirm, Space, Tag, Tooltip } from 'antd';
 import React, { useRef, useState } from 'react';
 import type { FormValueType } from '../TableList/components/UpdateForm';
 import UpdateForm from '../TableList/components/UpdateForm';
@@ -75,7 +81,17 @@ const handleRemove = async (selectedRows: API.RuleListItem[]) => {
   }
 };
 
-const AlertSeverityLevel = ({ level }: { level: string }) => {
+type SeverityLevel = 'normal' | 'warning' | 'high' | 'critical';
+
+/**
+ * @en-US Alert severity level
+ * @zh-CN 警报严重级别
+ * @param level
+ */
+
+const AlertSeverityLevel = ({ level }: { level: SeverityLevel }) => {
+  if (!level) return null;
+
   const colorsMap = {
     normal: 'blue',
     warning: 'orange',
@@ -90,13 +106,11 @@ const AlertSeverityLevel = ({ level }: { level: string }) => {
     critical: 'Urgent and potentially damaging alerts requiring immediate attention.',
   };
 
+  const alertLevel = level.toLowerCase() as SeverityLevel;
+
   return (
-    <Tooltip
-      title={textMap[level.toLowerCase()]}
-      color={colorsMap[level.toLowerCase()]}
-      arrow={false}
-    >
-      <Tag bordered={false} color={colorsMap[level.toLowerCase()]} style={{ cursor: 'pointer' }}>
+    <Tooltip title={textMap[alertLevel]} color={colorsMap[alertLevel]} arrow={false}>
+      <Tag bordered={false} color={colorsMap[alertLevel]} style={{ cursor: 'pointer' }}>
         {level.toUpperCase()}
       </Tag>
     </Tooltip>
@@ -123,7 +137,7 @@ const AlertsList: React.FC = () => {
 
   const columns: ProColumns<API.RuleListItem>[] = [
     {
-      title: 'Alert Name',
+      title: 'Rule',
       dataIndex: 'name',
       sorter: true,
       render: (dom, entity) => {
@@ -142,7 +156,9 @@ const AlertsList: React.FC = () => {
     {
       title: 'Type',
       dataIndex: 'type',
-      render: (_, { key }) => {
+      render: (_, { key }: API.RuleListItem) => {
+        if (key === undefined) return null;
+
         if (key % 3 === 0) return <>Positive Sentiment Surge</>;
         else if (key % 3 === 1) return <>Negative Sentiment Surge</>;
         else return <>Neutral Sentiment Surge</>;
@@ -162,7 +178,9 @@ const AlertsList: React.FC = () => {
     {
       title: 'Threshold',
       dataIndex: 'threshold',
-      render: (_, { key }) => {
+      render: (_, { key }: API.RuleListItem) => {
+        if (key === undefined) return null;
+
         if (key % 3 === 0) return <>100 mentions</>;
         else if (key % 3 === 1) return <>1000 mentions</>;
         else return <>10000 mentions</>;
@@ -172,6 +190,8 @@ const AlertsList: React.FC = () => {
       title: 'Severity',
       dataIndex: 'threshold',
       render: (_, { key }) => {
+        if (key === undefined) return null;
+
         if (key % 4 === 0) return <AlertSeverityLevel level="normal" />;
         else if (key % 4 === 1) return <AlertSeverityLevel level="high" />;
         else if (key % 4 === 2) return <AlertSeverityLevel level="warning" />;
@@ -206,35 +226,37 @@ const AlertsList: React.FC = () => {
       dataIndex: 'option',
       valueType: 'option',
       render: (_, record) => (
-        <Flex gap="6px" wrap>
-          <a
-            key="config"
-            onClick={() => {
-              handleUpdateModalOpen(true);
-              setCurrentRow(record);
-            }}
-          >
-            Edit
-          </a>
-          <a
-            key="subscribeAlert"
-            onClick={() => {
-              message.success('You have successfully subscribed to this alert!');
-            }}
-          >
-            Subscribe
-          </a>
+        <Space size="small">
+          <Tooltip placement="top" title="Edit this Alert" key="edit">
+            <Button
+              type="text"
+              icon={<EditOutlined />}
+              onClick={() => {
+                handleUpdateModalOpen(true);
+                setCurrentRow(record);
+              }}
+            ></Button>
+          </Tooltip>
+          <Tooltip placement="top" title="Subscribe this Alert" key="subscribe">
+            <Button
+              type="text"
+              icon={<BellOutlined />}
+              onClick={() => {
+                message.success(
+                  'You have successfully subscribed to receive this alert via email!',
+                );
+              }}
+            ></Button>
+          </Tooltip>
           <Popconfirm
             key="delete"
             title="Delete the notebook"
             description="Are you sure to delete this alert?"
             icon={<QuestionCircleOutlined style={{ color: '#ff4d4f' }} />}
           >
-            <a type="link" style={{ color: '#ff4d4f' }}>
-              Delete
-            </a>
+            <Button type="text" icon={<DeleteOutlined />} danger></Button>
           </Popconfirm>
-        </Flex>
+        </Space>
       ),
     },
   ];
@@ -290,7 +312,6 @@ const AlertsList: React.FC = () => {
           <Button type="primary">Batch approval</Button>
         </FooterToolbar>
       )}
-
       <UpdateForm
         onSubmit={async (value) => {
           const success = await handleUpdate(value);
@@ -311,7 +332,7 @@ const AlertsList: React.FC = () => {
         updateModalOpen={updateModalOpen}
         values={currentRow || {}}
       />
-
+      {/* TODO: Alerts details with Charts */}
       <Drawer
         width={600}
         open={showDetail}

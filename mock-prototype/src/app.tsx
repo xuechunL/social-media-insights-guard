@@ -40,6 +40,15 @@ export async function getInitialState(): Promise<{
       settings: defaultSettings as Partial<LayoutSettings>,
     };
   }
+
+  const hasVisited = localStorage.getItem('hasVisited');
+  console.log('hasVisited', hasVisited);
+  // if is first visit, redirect to /docs/intro
+  if (!hasVisited) {
+    localStorage.setItem('hasVisited', 'true');
+    history.push('/docs/intro');
+  }
+
   return {
     fetchUserInfo,
     settings: defaultSettings as Partial<LayoutSettings>,
@@ -107,10 +116,9 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
           theme={{
             token: {
               // Seed Token
-              colorPrimary: '#20a7c9',
-              colorLink: '#20a7c9',
-              borderRadius: 4,
-
+              // colorPrimary: '#20a7c9',
+              // colorLink: '#20a7c9',
+              // borderRadius: 4,
               // Alias Token
               // colorBgContainer: '#f6ffed',
             },

@@ -1,5 +1,6 @@
+import { InfoCard } from '@/pages/Quickstart';
 import { PageContainer } from '@ant-design/pro-components';
-import { Alert, Card, List, Tabs, Typography } from 'antd';
+import { Alert, Card, Tabs, Typography } from 'antd';
 import React, { useRef, useState } from 'react';
 import AlertsList from './AlertsList';
 
@@ -11,23 +12,24 @@ const SentimentAnalysisAlerts: React.FC = () => {
       <Alert
         message="Config for Sentiment Analysis Alerts"
         description={
-          <List size="small">
-            <List.Item>
-              <Typography.Text mark>Positive Sentiment Surge:</Typography.Text> Notify when there is
-              a sudden increase in positive sentiment.
-            </List.Item>
-            <List.Item>
-              <Typography.Text mark>Negative Sentiment Surge:</Typography.Text> Notify when there is
-              a sudden increase in negative
-            </List.Item>
-            <List.Item>
-              <Typography.Text mark>Brand Mentions Sentiment:</Typography.Text> Alert based on the
+          <div>
+            <p>
+              <Typography.Text strong>Positive Sentiment Surge:</Typography.Text> Notify when there
+              is a sudden increase in positive sentiment.
+            </p>
+            <p>
+              <Typography.Text strong>Negative Sentiment Surge:</Typography.Text> Notify when there
+              is a sudden increase in negative
+            </p>
+            <p>
+              <Typography.Text strong>Brand Mentions Sentiment:</Typography.Text> Alert based on the
               sentiment of mentions related to the brand or specific keywords.
-            </List.Item>
-          </List>
+            </p>
+          </div>
         }
         type="info"
         showIcon
+        closable
       />
       <AlertsList />
     </div>
@@ -40,23 +42,24 @@ const EngagementMetricsAlerts: React.FC = () => {
       <Alert
         message="Config for Engagement Metrics Alerts"
         description={
-          <List size="small">
-            <List.Item>
-              <Typography.Text mark>High Engagement Posts:</Typography.Text> Alert when a post
+          <div>
+            <p>
+              <Typography.Text strong>High Engagement Posts:</Typography.Text> Alert when a post
               receives unusually high engagement (likes, shares, comments).
-            </List.Item>
-            <List.Item>
-              <Typography.Text mark>Low Engagement Posts:</Typography.Text> Alert when posts are
+            </p>
+            <p>
+              <Typography.Text strong>Low Engagement Posts:</Typography.Text> Alert when posts are
               receiving significantly lower engagement than average.
-            </List.Item>
-            <List.Item>
-              <Typography.Text mark>Engagement Drop:</Typography.Text> Notify when there is a sudden
-              drop in engagement metrics.
-            </List.Item>
-          </List>
+            </p>
+            <p>
+              <Typography.Text strong>Engagement Drop:</Typography.Text> Notify when there is a
+              sudden drop in engagement metrics.
+            </p>
+          </div>
         }
         type="info"
         showIcon
+        closable
       />
       <AlertsList />
     </div>
@@ -69,23 +72,24 @@ const UserBehaviorAlerts: React.FC = () => {
       <Alert
         message="Config for User Behaviour Alerts"
         description={
-          <List size="small">
-            <List.Item>
-              <Typography.Text mark>New Followers:</Typography.Text> Notify when there is a
+          <div>
+            <p>
+              <Typography.Text strong>New Followers:</Typography.Text> Notify when there is a
               significant increase in followers.
-            </List.Item>
-            <List.Item>
-              <Typography.Text mark>Unfollowers Spike:</Typography.Text> Alert when there is a
+            </p>
+            <p>
+              <Typography.Text strong>Unfollowers Spike:</Typography.Text> Alert when there is a
               sudden increase in the number of unfollowers.
-            </List.Item>
-            <List.Item>
-              <Typography.Text mark>High Activity Users:</Typography.Text> Notify when specific
+            </p>
+            <p>
+              <Typography.Text strong>High Activity Users:</Typography.Text> Notify when specific
               users are particularly active (many posts, comments, etc.).
-            </List.Item>
-          </List>
+            </p>
+          </div>
         }
         type="info"
         showIcon
+        closable
       />
       <AlertsList />
     </div>
@@ -98,23 +102,24 @@ const TrendDetectionAlerts: React.FC = () => {
       <Alert
         message="Config for Trend Detection Alerts"
         description={
-          <List size="small">
-            <List.Item>
-              <Typography.Text mark>Trending Topics:</Typography.Text> Alert when certain hashtags
+          <div>
+            <p>
+              <Typography.Text strong>Trending Topics:</Typography.Text> Alert when certain hashtags
               or topics start trending.
-            </List.Item>
-            <List.Item>
-              <Typography.Text mark>Keyword Spikes:</Typography.Text> Notify when certain keywords
+            </p>
+            <p>
+              <Typography.Text strong>Keyword Spikes:</Typography.Text> Notify when certain keywords
               see a sudden spike in usage.
-            </List.Item>
-            <List.Item>
-              <Typography.Text mark>Viral Content:</Typography.Text> Alert when content goes viral
+            </p>
+            <p>
+              <Typography.Text strong>Viral Content:</Typography.Text> Alert when content goes viral
               (rapidly increasing in shares/views).
-            </List.Item>
-          </List>
+            </p>
+          </div>
         }
         type="info"
         showIcon
+        closable
       />
       <AlertsList />
     </div>
@@ -190,7 +195,15 @@ const Alerts: React.FC = () => {
   };
 
   return (
-    <PageContainer content="This is the alerts and settings page for monitoring. This page can only be viewed by Admin.">
+    <PageContainer
+      content={
+        <InfoCard
+          // title="Admin Alerts"
+          href="/admin/alerts"
+          desc="Alerts Mode allows you to configure alerts for the Overview Mode. Customize thresholds, notification preferences, and alerting mechanisms to stay informed about critical events in real time."
+        />
+      }
+    >
       <Card>
         <Tabs
           type="editable-card"

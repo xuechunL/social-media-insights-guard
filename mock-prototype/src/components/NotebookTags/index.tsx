@@ -40,7 +40,7 @@ const NotebookTags: React.FC = () => {
   const tagPlusStyle: React.CSSProperties = {
     borderStyle: 'dashed',
     backgroundColor: '#fff',
-    color: '#20a7c9',
+    // color: '#20a7c9',
   };
 
   const forMap = (tag: string) => (

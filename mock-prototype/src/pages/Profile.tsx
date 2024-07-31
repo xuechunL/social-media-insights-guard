@@ -48,8 +48,8 @@ const Profile: React.FC = () => {
     <PageContainer>
       <Card
         title={intl.formatMessage({
-          id: 'pages.profile.title',
-          defaultMessage: 'Profile Settings',
+          id: 'menu.profile.basic',
+          defaultMessage: 'Basic Settings',
         })}
       >
         <Form

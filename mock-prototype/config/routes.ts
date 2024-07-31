@@ -23,24 +23,18 @@ export default [
     ],
   },
   {
-    path: '/welcome',
-    name: 'welcome',
-    icon: 'smile',
-    component: './Welcome',
-  },
-  {
     path: '/dashboard',
     name: 'dashboard',
     icon: 'dashboard',
     routes: [
       {
         path: '/dashboard',
-        redirect: '/dashboard/monitor',
+        redirect: '/dashboard/overview',
       },
       {
-        path: '/dashboard/monitor',
-        name: 'monitor',
-        component: './Dashboard/Monitor',
+        path: '/dashboard/overview',
+        name: 'overview',
+        component: './Dashboard/Overview',
       },
       {
         path: '/dashboard/analysis',
@@ -77,14 +71,35 @@ export default [
     ],
   },
   {
-    path: '/profile',
-    name: 'profile',
-    icon: 'profile',
+    path: '/account',
+    name: 'account',
+    icon: 'user',
     component: './Profile',
   },
   {
+    path: '/docs',
+    name: 'documentation',
+    icon: 'fileText',
+    routes: [
+      {
+        path: '/docs',
+        redirect: '/docs/intro',
+      },
+      {
+        path: '/docs/intro',
+        name: 'intro',
+        component: './Welcome',
+      },
+      {
+        path: '/docs/quickstart',
+        name: 'quickstart',
+        component: './Quickstart',
+      },
+    ],
+  },
+  {
     path: '/',
-    redirect: '/welcome',
+    redirect: '/dashboard',
   },
   {
     path: '*',

@@ -8,11 +8,11 @@ const Settings: ProLayoutProps & {
   logo?: string | boolean;
 } = {
   navTheme: 'light',
-  colorPrimary: '#20a7c9',
-  layout: 'mix',
+  // colorPrimary: '#20a7c9',
+  layout: 'top',
   contentWidth: 'Fluid',
   fixedHeader: false,
-  fixSiderbar: true,
+  fixSiderbar: false,
   colorWeak: false,
   title: 'Social Media Insights',
   pwa: true,

@@ -1,3 +1,4 @@
+import { InfoCard } from '@/pages/Quickstart';
 import { removeRule, rule, updateRule } from '@/services/ant-design-pro/api';
 import type { ActionType, ProColumns, ProDescriptionsItemProps } from '@ant-design/pro-components';
 import {
@@ -231,10 +232,13 @@ const TableList: React.FC = () => {
 
   return (
     <PageContainer
-      content={intl.formatMessage({
-        id: 'pages.admin.admin.logs.title',
-        defaultMessage: 'This page can only be viewed by Admin.',
-      })}
+      content={
+        <InfoCard
+          // title="Admin Logs"
+          href="/admin/logs"
+          desc="Access detailed logs to monitor system activities, user actions, and data access. Ensure the integrity and security of your data with comprehensive log reports."
+        />
+      }
     >
       <ProTable<API.RuleListItem, API.PageParams>
         // headerTitle={intl.formatMessage({
