@@ -1,10 +1,12 @@
 import { AvatarDropdown, AvatarName, SelectLang } from '@/components';
 import { currentUser as queryCurrentUser } from '@/services/ant-design-pro/api';
 import type { Settings as LayoutSettings } from '@ant-design/pro-components';
+
+import { BellOutlined } from '@ant-design/icons';
 import { SettingDrawer } from '@ant-design/pro-components';
 import type { RunTimeLayoutConfig } from '@umijs/max';
 import { history } from '@umijs/max';
-import { ConfigProvider } from 'antd';
+import { Badge, ConfigProvider } from 'antd';
 import defaultSettings from '../config/defaultSettings';
 import { errorConfig } from './requestErrorConfig';
 const isDev = process.env.NODE_ENV === 'development';
@@ -58,12 +60,19 @@ export async function getInitialState(): Promise<{
 // ProLayout api https://procomponents.ant.design/components/layout
 export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) => {
   return {
-    actionsRender: () => [<SelectLang key="SelectLang" />],
+    actionsRender: () => [
+      <SelectLang key="SelectLang" />,
+      <span key="inbox" style={{ display: 'inline-flex' }}>
+        <Badge count={5} size="small">
+          <BellOutlined />
+        </Badge>
+      </span>,
+    ],
     avatarProps: {
       src: initialState?.currentUser?.avatar,
       title: <AvatarName />,
       render: (_, avatarChildren) => {
-        return <AvatarDropdown>{avatarChildren}</AvatarDropdown>;
+        return <AvatarDropdown menu>{avatarChildren}</AvatarDropdown>;
       },
     },
     // waterMarkProps: {
@@ -106,6 +115,7 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
         ]
       : [],
     menuHeaderRender: undefined,
+    pageTitleRender: false,
     // 自定义 403 页面
     // unAccessible: <div>unAccessible</div>,
     // 增加一个 loading 的状态
@@ -121,6 +131,7 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
               // borderRadius: 4,
               // Alias Token
               // colorBgContainer: '#f6ffed',
+              fontSizeHeading1: 30,
             },
           }}
         >

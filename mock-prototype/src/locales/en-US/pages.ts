@@ -43,7 +43,7 @@ export default {
   'pages.searchTable.createForm.newRule': 'New Rule',
   'pages.searchTable.updateForm.ruleConfig': 'Rule Configuration',
   'pages.searchTable.updateForm.basicConfig': 'Basic Information',
-  'pages.searchTable.updateForm.ruleName.nameLabel': 'Action',
+  'pages.searchTable.updateForm.ruleName.nameLabel': 'Activity',
   'pages.searchTable.updateForm.ruleName.nameRules': 'Please enter the action name!',
   'pages.searchTable.updateForm.ruleDesc.descLabel': 'Rule Description',
   'pages.searchTable.updateForm.ruleDesc.descPlaceholder': 'Please enter at least five characters',

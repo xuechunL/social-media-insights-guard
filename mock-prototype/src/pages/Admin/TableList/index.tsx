@@ -1,4 +1,4 @@
-import { InfoCard } from '@/pages/Quickstart';
+import PageHeader from '@/components/PageHeader';
 import { removeRule, rule, updateRule } from '@/services/ant-design-pro/api';
 import type { ActionType, ProColumns, ProDescriptionsItemProps } from '@ant-design/pro-components';
 import {
@@ -109,7 +109,7 @@ const TableList: React.FC = () => {
       title: (
         <FormattedMessage
           id="pages.searchTable.updateForm.ruleName.nameLabel"
-          defaultMessage="Action"
+          defaultMessage="Activity"
         />
       ),
       dataIndex: 'name',
@@ -231,15 +231,11 @@ const TableList: React.FC = () => {
   ];
 
   return (
-    <PageContainer
-      content={
-        <InfoCard
-          // title="Admin Logs"
-          href="/admin/logs"
-          desc="Access detailed logs to monitor system activities, user actions, and data access. Ensure the integrity and security of your data with comprehensive log reports."
-        />
-      }
-    >
+    <PageContainer>
+      <PageHeader
+        title="Activity Logs"
+        desc="Access detailed logs to monitor system activities, user actions, and data access."
+      />
       <ProTable<API.RuleListItem, API.PageParams>
         // headerTitle={intl.formatMessage({
         //   id: 'pages.searchTable.title',

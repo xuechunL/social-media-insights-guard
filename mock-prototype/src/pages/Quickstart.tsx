@@ -1,7 +1,7 @@
 import access from '@/access';
 import { PageContainer } from '@ant-design/pro-components';
 import { useModel } from '@umijs/max';
-import { Card, theme } from 'antd';
+import { Card, theme, Typography } from 'antd';
 import React from 'react';
 
 /**
@@ -111,6 +111,7 @@ const Qucikstart: React.FC = () => {
         }}
       >
         <div>
+          <Typography.Title level={1}>Quickstart</Typography.Title>
           <div
             style={{
               marginBottom: 24,
@@ -121,7 +122,6 @@ const Qucikstart: React.FC = () => {
             Ready to try Dashboards? This a Quickstart guide will help you to get up and create your
             first Dashboard.
           </div>
-
           <div
             style={{
               display: 'flex',
@@ -139,7 +139,7 @@ const Qucikstart: React.FC = () => {
               index={2}
               title="Exploration Mode"
               href="https://superset.apache.org/docs/intro"
-              desc="Exploration Mode leverages the powerful capabilities of Apache Superset for data exploration and visualization. Connect your custom databases and datasets to create sophisticated visualizations and perform in-depth analyses. Unlock the potential of your data with flexible and customizable dashboards"
+              desc="Exploration Mode leverages the powerful capabilities of Apache Superset for data exploration and visualization. Connect your custom databases and datasets to create sophisticated visualizations and perform in-depth analyses. Unlock the potential of your data with flexible and customizable dashboards."
             />
             <InfoCard
               index={3}

@@ -9,10 +9,10 @@ const Settings: ProLayoutProps & {
 } = {
   navTheme: 'light',
   // colorPrimary: '#20a7c9',
-  layout: 'top',
+  layout: 'mix',
   contentWidth: 'Fluid',
   fixedHeader: false,
-  fixSiderbar: false,
+  fixSiderbar: true,
   colorWeak: false,
   title: 'Social Media Insights',
   pwa: true,

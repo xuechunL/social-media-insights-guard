@@ -54,7 +54,7 @@ const Welcome: React.FC = () => {
             <Button
               type="primary"
               onClick={() => {
-                history.push('/dashboard/monitor');
+                history.push('/dashboard');
               }}
             >
               Get Started

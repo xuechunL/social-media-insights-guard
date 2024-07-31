@@ -30,7 +30,7 @@ const tailFormItemLayout = {
   },
 };
 
-const Profile: React.FC = () => {
+const Account: React.FC = () => {
   const intl = useIntl();
   const [form] = Form.useForm();
   const { initialState } = useModel('@@initialState');
@@ -48,8 +48,8 @@ const Profile: React.FC = () => {
     <PageContainer>
       <Card
         title={intl.formatMessage({
-          id: 'menu.profile.basic',
-          defaultMessage: 'Basic Settings',
+          id: 'menu.account.settings',
+          defaultMessage: 'Account Settings',
         })}
       >
         <Form
@@ -112,4 +112,4 @@ const Profile: React.FC = () => {
   );
 };
 
-export default Profile;
+export default Account;

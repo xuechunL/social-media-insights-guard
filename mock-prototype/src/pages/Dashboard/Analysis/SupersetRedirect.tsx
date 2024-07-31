@@ -1,4 +1,4 @@
-import { Button, Space, Spin, Typography } from 'antd';
+import { Button, Flex, Spin, Typography } from 'antd';
 import { useEffect, useState } from 'react';
 
 const SupersetRedirect = () => {
@@ -26,17 +26,25 @@ const SupersetRedirect = () => {
   }, []);
 
   return (
-    <Space direction="vertical" size="large" align="center" style={{ display: 'flex' }}>
-      <Spin tip="Loading" style={{ marginTop: 32, marginBottom: 32 }}>
+    <Flex
+      gap={16}
+      vertical
+      align="center"
+      style={{
+        paddingTop: 24,
+        paddingBottom: 8,
+      }}
+    >
+      <Spin tip="Loading" style={{ marginBottom: 32 }}>
         <Typography.Text>
           You will be redirected to Apache Superset Dashboard automatically in {countdown} second
           {countdown !== 1 && 's'}.
         </Typography.Text>
       </Spin>
-      <Button type="primary" onClick={handleRedirect} style={{ marginTop: 32 }}>
+      <Button type="primary" onClick={handleRedirect} style={{ marginTop: 48 }}>
         Open Superset Dashboard Now
       </Button>
-    </Space>
+    </Flex>
   );
 };
 

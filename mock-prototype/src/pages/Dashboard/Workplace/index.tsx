@@ -1,5 +1,5 @@
 import NotebookTags from '@/components/NotebookTags';
-import { InfoCard } from '@/pages/Quickstart';
+import PageHeader from '@/components/PageHeader';
 import {
   CodeOutlined,
   DashboardOutlined,
@@ -202,16 +202,12 @@ const Workplace: React.FC = () => {
   ];
 
   return (
-    <PageContainer
-      content={
-        <InfoCard
-          // title="Workplace Mode"
-          href="https://observablehq.com/"
-          desc="Workplace Mode integrates Observable Notebooks, allowing engineers to create fast, beautiful data visualization charts, dashboards, and reports directly from the command line. Customize and share insights efficiently. This mode is perfect for those who need a programmable and dynamic environment for data analysis."
-        />
-      }
-    >
+    <PageContainer>
       {contextHolder}
+      <PageHeader
+        title="Workplace Mode"
+        desc="Workplace Mode integrates Observable Notebooks, allowing engineers to create fast, beautiful data visualization charts, dashboards, and reports directly from the command line."
+      />
       <Tabs accessKey={activeKey} items={items} onChange={handleTabChange} />
       <Modal
         open={open}

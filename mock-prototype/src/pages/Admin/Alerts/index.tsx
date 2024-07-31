@@ -1,4 +1,4 @@
-import { InfoCard } from '@/pages/Quickstart';
+import PageHeader from '@/components/PageHeader';
 import { PageContainer } from '@ant-design/pro-components';
 import { Alert, Card, Tabs, Typography } from 'antd';
 import React, { useRef, useState } from 'react';
@@ -195,15 +195,11 @@ const Alerts: React.FC = () => {
   };
 
   return (
-    <PageContainer
-      content={
-        <InfoCard
-          // title="Admin Alerts"
-          href="/admin/alerts"
-          desc="Alerts Mode allows you to configure alerts for the Overview Mode. Customize thresholds, notification preferences, and alerting mechanisms to stay informed about critical events in real time."
-        />
-      }
-    >
+    <PageContainer>
+      <PageHeader
+        title="Monitoring Alerts"
+        desc="Alerts Mode allows you to configure alerts for the Overview Mode. Customize thresholds, notification preferences, and alerting mechanisms to stay informed about critical events in real time."
+      />
       <Card>
         <Tabs
           type="editable-card"

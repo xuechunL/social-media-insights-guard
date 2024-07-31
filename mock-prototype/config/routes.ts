@@ -72,9 +72,13 @@ export default [
   },
   {
     path: '/account',
-    name: 'account',
-    icon: 'user',
-    component: './Profile',
+    routes: [
+      {
+        path: '/account/settings',
+        name: 'settings',
+        component: './Account',
+      },
+    ],
   },
   {
     path: '/docs',
