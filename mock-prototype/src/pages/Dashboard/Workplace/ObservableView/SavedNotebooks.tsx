@@ -1,5 +1,6 @@
 // src/components/NotebooksList.tsx
 import {
+  DashboardFilled,
   DashboardOutlined,
   DeleteOutlined,
   DownloadOutlined,
@@ -19,7 +20,7 @@ interface DataType {
   key: string;
   name: string;
   date: string;
-  type: 'Private' | 'Public';
+  type: 'Published' | 'Draft';
   tags?: string[];
 }
 
@@ -43,12 +44,12 @@ const columns: TableProps<DataType>['columns'] = [
     key: 'type',
     filters: [
       {
-        text: 'Public',
-        value: 'Public',
+        text: 'Published',
+        value: 'Published',
       },
       {
-        text: 'Private',
-        value: 'Private',
+        text: 'Draft',
+        value: 'Draft',
       },
     ],
     onFilter: (value, record) => record.type === value,
@@ -110,24 +111,39 @@ const columns: TableProps<DataType>['columns'] = [
   {
     title: 'Action',
     key: 'action',
-    render: () => (
-      <Space size="small">
-        <Tooltip placement="top" title="Download this Notebook" key="download">
-          <Button type="text" icon={<DownloadOutlined />}></Button>
-        </Tooltip>
-        <Tooltip placement="top" title="Config this Notebook to Monitor" key="config">
-          <Button type="text" icon={<DashboardOutlined />}></Button>
-        </Tooltip>
-        <Popconfirm
-          key="delete"
-          title="Delete the notebook"
-          description="Are you sure to delete this notebook?"
-          icon={<QuestionCircleOutlined style={{ color: '#ff4d4f' }} />}
-        >
-          <Button type="text" icon={<DeleteOutlined />} danger></Button>
-        </Popconfirm>
-      </Space>
-    ),
+    render: (_, record) => {
+      console.log('record', record);
+      return (
+        <Space size="small">
+          <Tooltip placement="top" title="Download this notebook" key="download">
+            <Button type="text" icon={<DownloadOutlined />}></Button>
+          </Tooltip>
+          <Tooltip
+            placement="top"
+            title={
+              record.type === 'Published'
+                ? 'This notebook is published. Click to make it a draft.'
+                : 'This notebook is not published, it will not show up in the list of Dashboards. Click here to publish this notebook.'
+            }
+            key="config"
+          >
+            {record.type === 'Published' ? (
+              <Button type="text" icon={<DashboardFilled />}></Button>
+            ) : (
+              <Button type="text" icon={<DashboardOutlined />}></Button>
+            )}
+          </Tooltip>
+          <Popconfirm
+            key="delete"
+            title="Delete the notebook"
+            description="Are you sure to delete this notebook?"
+            icon={<QuestionCircleOutlined style={{ color: '#ff4d4f' }} />}
+          >
+            <Button type="text" icon={<DeleteOutlined />} danger></Button>
+          </Popconfirm>
+        </Space>
+      );
+    },
   },
 ];
 
@@ -136,21 +152,21 @@ const data: DataType[] = [
     key: '1',
     name: 'Facebook User Behaviour Dashboard',
     date: '2024-06-01 09:09:09',
-    type: 'Public',
+    type: 'Published',
     tags: ['markdown', 'facebook'],
   },
   {
     key: '2',
     name: 'Social Media Platforms Analysis',
     date: '2024-06-24 11:11:11',
-    type: 'Private',
+    type: 'Draft',
     tags: ['javascript', 'facebook', 'twitter', 'youtube'],
   },
   {
     key: '3',
     name: 'Donald Trump Tweets Sentiment Analysis',
     date: '2024-07-01 0:0:1',
-    type: 'Public',
+    type: 'Published',
     tags: ['python', 'sql', 'twitter'],
   },
 ];

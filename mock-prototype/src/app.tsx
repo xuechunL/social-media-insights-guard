@@ -62,7 +62,13 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
   return {
     actionsRender: () => [
       <SelectLang key="SelectLang" />,
-      <span key="inbox" style={{ display: 'inline-flex' }}>
+      <span
+        key="inbox"
+        style={{ display: 'inline-flex' }}
+        onClick={() => {
+          history.push('/admin/alerts');
+        }}
+      >
         <Badge count={5} size="small">
           <BellOutlined />
         </Badge>

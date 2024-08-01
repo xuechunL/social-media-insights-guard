@@ -153,7 +153,7 @@ const Workplace: React.FC = () => {
                 ? [
                     <Space key="config" onClick={() => {}}>
                       <DashboardOutlined />
-                      Configure to Overview
+                      Publish to Overview
                     </Space>,
                   ]
                 : []

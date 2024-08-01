@@ -6,6 +6,8 @@ import AlertsList from './AlertsList';
 
 type TargetKey = React.MouseEvent | React.KeyboardEvent | string;
 
+// TODO: Alerts and Settings page for monitoring (fake and build more alerts for sentiment analysis, user behavior, engagement metrics, and trend detection)
+
 const SentimentAnalysisAlerts: React.FC = () => {
   return (
     <div>
@@ -19,7 +21,7 @@ const SentimentAnalysisAlerts: React.FC = () => {
             </p>
             <p>
               <Typography.Text strong>Negative Sentiment Surge:</Typography.Text> Notify when there
-              is a sudden increase in negative
+              is a sudden increase in negative sentiment.
             </p>
             <p>
               <Typography.Text strong>Brand Mentions Sentiment:</Typography.Text> Alert based on the

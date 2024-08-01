@@ -47,7 +47,7 @@ declare namespace API {
   };
 
   type getUserByNameParams = {
-    /** The name that needs to be fetched. Use user1 for testing.  */
+    /** The name that needs to be fetched. Use Admin User for testing.  */
     username: string;
   };
 

@@ -60,9 +60,6 @@ const Fullscreen: React.FC = () => {
               <SaveOutlined />
               SAVE
             </Space>,
-            // <Button key="settings" type="text" icon={<DashboardOutlined />}>
-            //   Configure
-            // </Button>,
           ]}
           style={{ width: '50%' }}
           styles={{ body: { height: 624 } }}
@@ -84,7 +81,7 @@ const Fullscreen: React.FC = () => {
               ? [
                   <Space key="config" onClick={() => {}}>
                     <DashboardOutlined />
-                    Configure to Overview
+                    Publish to Overview
                   </Space>,
                 ]
               : []

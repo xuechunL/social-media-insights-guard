@@ -30,6 +30,8 @@ const tailFormItemLayout = {
   },
 };
 
+// TODO: add Notification Methods (email, phone) fields for user account settings
+
 const Account: React.FC = () => {
   const intl = useIntl();
   const [form] = Form.useForm();

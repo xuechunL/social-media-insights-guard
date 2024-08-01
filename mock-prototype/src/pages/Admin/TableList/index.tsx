@@ -156,6 +156,11 @@ const TableList: React.FC = () => {
       dataIndex: 'desc',
       valueType: 'textarea',
     },
+    {
+      title: <FormattedMessage id="pages.searchTable.user" defaultMessage="User" />,
+      dataIndex: 'owner',
+      valueType: 'text',
+    },
     // {
     //   title: (
     //     <FormattedMessage id="pages.searchTable.titleCallNo" defaultMessage="Number of action" />
@@ -169,43 +174,43 @@ const TableList: React.FC = () => {
     //       defaultMessage: ' 万 ',
     //     })}`,
     // },
-    {
-      title: <FormattedMessage id="pages.searchTable.titleStatus" defaultMessage="Status" />,
-      dataIndex: 'status',
-      hideInForm: true,
-      valueEnum: {
-        0: {
-          text: (
-            <FormattedMessage
-              id="pages.searchTable.nameStatus.default"
-              defaultMessage="Shut down"
-            />
-          ),
-          status: 'Default',
-        },
-        1: {
-          text: (
-            <FormattedMessage id="pages.searchTable.nameStatus.running" defaultMessage="Running" />
-          ),
-          status: 'Processing',
-        },
-        2: {
-          text: (
-            <FormattedMessage id="pages.searchTable.nameStatus.online" defaultMessage="Online" />
-          ),
-          status: 'Success',
-        },
-        3: {
-          text: (
-            <FormattedMessage
-              id="pages.searchTable.nameStatus.abnormal"
-              defaultMessage="Abnormal"
-            />
-          ),
-          status: 'Error',
-        },
-      },
-    },
+    // {
+    //   title: <FormattedMessage id="pages.searchTable.titleStatus" defaultMessage="Status" />,
+    //   dataIndex: 'status',
+    //   hideInForm: true,
+    //   valueEnum: {
+    //     0: {
+    //       text: (
+    //         <FormattedMessage
+    //           id="pages.searchTable.nameStatus.default"
+    //           defaultMessage="Shut down"
+    //         />
+    //       ),
+    //       status: 'Default',
+    //     },
+    //     1: {
+    //       text: (
+    //         <FormattedMessage id="pages.searchTable.nameStatus.running" defaultMessage="Running" />
+    //       ),
+    //       status: 'Processing',
+    //     },
+    //     2: {
+    //       text: (
+    //         <FormattedMessage id="pages.searchTable.nameStatus.online" defaultMessage="Online" />
+    //       ),
+    //       status: 'Success',
+    //     },
+    //     3: {
+    //       text: (
+    //         <FormattedMessage
+    //           id="pages.searchTable.nameStatus.abnormal"
+    //           defaultMessage="Abnormal"
+    //         />
+    //       ),
+    //       status: 'Error',
+    //     },
+    //   },
+    // },
     // {
     //   title: <FormattedMessage id="pages.searchTable.titleOption" defaultMessage="Operating" />,
     //   dataIndex: 'option',

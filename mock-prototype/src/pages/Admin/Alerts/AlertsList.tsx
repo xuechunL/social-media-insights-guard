@@ -227,7 +227,7 @@ const AlertsList: React.FC = () => {
       valueType: 'option',
       render: (_, record) => (
         <Space size="small">
-          <Tooltip placement="top" title="Edit this Alert" key="edit">
+          <Tooltip placement="top" title="Edit this alert" key="edit">
             <Button
               type="text"
               icon={<EditOutlined />}
@@ -237,7 +237,7 @@ const AlertsList: React.FC = () => {
               }}
             ></Button>
           </Tooltip>
-          <Tooltip placement="top" title="Subscribe this Alert" key="subscribe">
+          <Tooltip placement="top" title="Subscribe this alert" key="subscribe">
             <Button
               type="text"
               icon={<BellOutlined />}
@@ -250,7 +250,7 @@ const AlertsList: React.FC = () => {
           </Tooltip>
           <Popconfirm
             key="delete"
-            title="Delete the notebook"
+            title="Delete the alert"
             description="Are you sure to delete this alert?"
             icon={<QuestionCircleOutlined style={{ color: '#ff4d4f' }} />}
           >

@@ -48,7 +48,7 @@ const getNotices = (req: Request, res: Response) => {
         id: '000000006',
         avatar:
           'https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/eXLzRbPqQE4AAAAAAAAAAAAAFl94AQBr',
-        title: 'User1 评论了你',
+        title: 'Admin User 评论了你',
         description: '描述信息描述信息描述信息',
         datetime: '2017-08-07',
         type: 'message',
