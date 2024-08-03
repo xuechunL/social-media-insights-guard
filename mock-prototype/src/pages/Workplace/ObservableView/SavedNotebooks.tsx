@@ -9,6 +9,7 @@ import {
   PlusOutlined,
   QuestionCircleOutlined,
   ReloadOutlined,
+  ShareAltOutlined,
   TwitterOutlined,
   YoutubeOutlined,
 } from '@ant-design/icons';
@@ -118,6 +119,9 @@ const columns: TableProps<DataType>['columns'] = [
           <Tooltip placement="top" title="Download this notebook" key="download">
             <Button type="text" icon={<DownloadOutlined />}></Button>
           </Tooltip>
+          <Tooltip placement="top" title="Share this notebook by email" key="share">
+            <Button type="text" icon={<ShareAltOutlined />}></Button>
+          </Tooltip>
           <Tooltip
             placement="top"
             title={
@@ -150,24 +154,31 @@ const columns: TableProps<DataType>['columns'] = [
 const data: DataType[] = [
   {
     key: '1',
-    name: 'Facebook User Behaviour Dashboard',
+    name: 'User Behaviour of Hot HashTags on Facebook Dashboard',
     date: '2024-06-01 09:09:09',
     type: 'Published',
     tags: ['markdown', 'facebook'],
   },
   {
     key: '2',
-    name: 'Social Media Platforms Analysis',
+    name: 'Polarising Topics During National Elections Analysis',
     date: '2024-06-24 11:11:11',
     type: 'Draft',
     tags: ['javascript', 'facebook', 'twitter', 'youtube'],
   },
   {
     key: '3',
-    name: 'Donald Trump Tweets Sentiment Analysis',
+    name: "Elon Musk's Controversial Tweets Sentiment Analysis",
+    date: '2024-07-01 0:0:1',
+    type: 'Draft',
+    tags: ['python', 'javascript', 'twitter'],
+  },
+  {
+    key: '4',
+    name: 'Visualising the Spread of Extreme Opinions on #TransRights',
     date: '2024-07-01 0:0:1',
     type: 'Published',
-    tags: ['python', 'sql', 'twitter'],
+    tags: ['python', 'sql', 'twitter', 'facebook'],
   },
 ];
 

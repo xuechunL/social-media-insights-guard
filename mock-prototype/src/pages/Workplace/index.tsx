@@ -5,6 +5,7 @@ import {
   DashboardOutlined,
   QuestionCircleOutlined,
   SaveOutlined,
+  ShareAltOutlined,
 } from '@ant-design/icons';
 import { PageContainer } from '@ant-design/pro-components';
 import {
@@ -109,7 +110,12 @@ const Workplace: React.FC = () => {
                 Notebook Editor{' '}
                 <Tooltip
                   placement="top"
-                  title="Write in Markdown, JavaScript, SQL, Python, R, or any language you prefer."
+                  title={
+                    <>
+                      Write in Markdown, JavaScript, SQL, Python, R, or any language you prefer.{' '}
+                      <a href="#">Learn code examples</a>
+                    </>
+                  }
                 >
                   <QuestionCircleOutlined />
                 </Tooltip>
@@ -124,11 +130,12 @@ const Workplace: React.FC = () => {
                 <SaveOutlined />
                 SAVE
               </Space>,
-              // <Tooltip key="settings" title="Add the notebook to overview">
-              //   <Button type="text" icon={<DashboardOutlined />}>
-              //     Configure
-              //   </Button>
-              // </Tooltip>,
+              <Tooltip key="share" title="Share this notebook by email">
+                <Space>
+                  <ShareAltOutlined />
+                  SHARE
+                </Space>
+              </Tooltip>,
             ]}
             extra={<a href="/notebook">Enter Fullscreen</a>}
             style={{ width: '50%' }}
@@ -153,7 +160,7 @@ const Workplace: React.FC = () => {
                 ? [
                     <Space key="config" onClick={() => {}}>
                       <DashboardOutlined />
-                      Publish to Overview
+                      Publish to Dashboards
                     </Space>,
                   ]
                 : []
@@ -233,8 +240,8 @@ const Workplace: React.FC = () => {
     <PageContainer>
       {contextHolder}
       <PageHeader
-        title="Workplace Mode"
-        desc="Workplace Mode integrates Observable Notebooks, allowing engineers to create fast, beautiful data visualization charts, dashboards, and reports directly from the command line."
+        title="Notebooks Mode"
+        desc="Notebooks Mode integrates Observable Notebooks, allowing engineers to create fast, beautiful data visualization charts, dashboards, and reports directly from the command line."
       />
       <Tabs
         style={{

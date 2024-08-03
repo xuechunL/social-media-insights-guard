@@ -4,6 +4,7 @@ import {
   DashboardOutlined,
   QuestionCircleOutlined,
   SaveOutlined,
+  ShareAltOutlined,
 } from '@ant-design/icons';
 import { Button, Card, ConfigProvider, Empty, Flex, Space, Tooltip, Typography } from 'antd';
 import React, { useState } from 'react';
@@ -45,7 +46,12 @@ const Fullscreen: React.FC = () => {
               Notebook Editor{' '}
               <Tooltip
                 placement="top"
-                title="Write in Markdown, JavaScript, SQL, Python, R, or any language you prefer."
+                title={
+                  <>
+                    Write in Markdown, JavaScript, SQL, Python, R, or any language you prefer.{' '}
+                    <a href="#">Learn code examples</a>
+                  </>
+                }
               >
                 <QuestionCircleOutlined />
               </Tooltip>
@@ -60,6 +66,12 @@ const Fullscreen: React.FC = () => {
               <SaveOutlined />
               SAVE
             </Space>,
+            <Tooltip key="share" title="Share this notebook by email">
+              <Space>
+                <ShareAltOutlined />
+                SHARE
+              </Space>
+            </Tooltip>,
           ]}
           style={{ width: '50%' }}
           styles={{ body: { height: 624 } }}
@@ -81,7 +93,7 @@ const Fullscreen: React.FC = () => {
               ? [
                   <Space key="config" onClick={() => {}}>
                     <DashboardOutlined />
-                    Publish to Overview
+                    Publish to Dashboards
                   </Space>,
                 ]
               : []

@@ -39,22 +39,36 @@ const Welcome: React.FC = () => {
               color: token.colorTextSecondary,
               lineHeight: '22px',
               marginTop: 16,
+              marginBottom: 9,
+              // width: '80%',
+            }}
+          >
+            Welcome to Social Media Insights, your one-stop platform for real-time monitoring, data
+            exploration, and advanced visualizations in the context of culture wars. Our platform
+            empowers analysts, experts, and engineers to uncover meaningful insights from social
+            media interactions, helping you understand and mitigate the impact of polarization and
+            divisive content.
+          </p>
+          <p
+            style={{
+              fontSize: '14px',
+              color: token.colorTextSecondary,
+              lineHeight: '22px',
+              marginTop: 9,
               marginBottom: 16,
               // width: '80%',
             }}
           >
-            Social Media Insights is designed to empower users with the tools they need to explore,
-            visualize, and monitor social media data in real time. Our platform provides
-            comprehensive solutions for both non-expert users and advanced data analysts to extract
-            meaningful insights from social media interactions. Whether you’re tracking user
-            engagement, monitoring trends, or visualizing data, Social Media Insights has you
-            covered.
+            With a focus on usability and comprehensive analysis, Social Media Insights provides a
+            range of tools designed to cater to different user needs. Whether you’re tracking key
+            influencers, analyzing sentiment trends, or creating custom dashboards, our platform is
+            here to support your analytical journey.
           </p>
           <Flex vertical align="center" gap="16px">
             <Button
               type="primary"
               onClick={() => {
-                history.push('/dashboard');
+                history.push('/docs/quickstart');
               }}
             >
               Get Started

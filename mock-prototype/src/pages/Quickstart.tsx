@@ -132,20 +132,20 @@ const Qucikstart: React.FC = () => {
             <InfoCard
               index={1}
               href="#"
-              title="Overview Mode"
-              desc="Overview Mode provides (near) real-time monitoring and customizable visualization interfaces designed for non-expert users. Easily track social media metrics, user behavior, and hashtags trends with intuitive, pre-built dashboards. Stay ahead of the curve with instant updates, alerts and actionable insights."
+              title="Dashboards"
+              desc="The Dashboards section is your hub for viewing and managing all your analytical dashboards. This includes real-time monitoring dashboards and custom dashboards created through the Exploration and Notebooks sections. Dashboards provide a comprehensive view of key metrics and trends, allowing you to stay informed and take action based on real-time data."
             />
             <InfoCard
               index={2}
-              title="Exploration Mode"
+              title="Exploration"
               href="https://superset.apache.org/docs/intro"
-              desc="Exploration Mode leverages the powerful capabilities of Apache Superset for data exploration and visualization. Connect your custom databases and datasets to create sophisticated visualizations and perform in-depth analyses. Unlock the potential of your data with flexible and customizable dashboards."
+              desc="The Exploration section leverages the powerful Apache Superset framework to enable experts to build custom dashboards using their own datasets. This section is designed for users who want to delve deeper into data analysis and create bespoke visualizations that cater to specific needs."
             />
             <InfoCard
               index={3}
-              title="Workplace Mode"
+              title="Notebooks"
               href="https://observablehq.com/"
-              desc="Workplace Mode integrates Observable Notebooks, allowing engineers to create fast, beautiful data visualization charts, dashboards, and reports directly from the command line. Customize and share insights efficiently. This mode is perfect for those who need a programmable and dynamic environment for data analysis."
+              desc="The Notebooks section provides a flexible and powerful environment for engineers to build visualization charts, dashboards, and reports using code. Leveraging the Observable Notebooks framework, this section is ideal for users who prefer a programmatic approach to data visualization."
             />
 
             {canAdmin && (
@@ -153,7 +153,7 @@ const Qucikstart: React.FC = () => {
                 index={4}
                 title="Admin Logs"
                 href="/admin/logs"
-                desc="Access detailed logs to monitor system activities, user actions, and data access. Ensure the integrity and security of your data with comprehensive log reports."
+                desc="Access detailed logs of system activities, user actions, and data access to monitor the platform’s usage and security."
               />
             )}
 
@@ -162,7 +162,7 @@ const Qucikstart: React.FC = () => {
                 index={5}
                 title="Admin Alerts"
                 href="/admin/alerts"
-                desc="Configure alerts for the Overview Mode. Customize thresholds, notification preferences, and alerting mechanisms to stay informed about critical events in real time."
+                desc="Create and manage alerts for different metrics. Set thresholds and receive notifications to stay ahead of critical events."
               />
             )}
           </div>

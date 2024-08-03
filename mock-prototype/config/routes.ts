@@ -23,30 +23,37 @@ export default [
     ],
   },
   {
-    path: '/dashboard',
+    path: '/dashboards',
     name: 'dashboard',
     icon: 'dashboard',
     routes: [
       {
-        path: '/dashboard',
-        redirect: '/dashboard/overview',
+        path: '/dashboards',
+        redirect: '/dashboards/monitor',
       },
       {
-        path: '/dashboard/overview',
-        name: 'overview',
-        component: './Dashboard/Overview',
+        path: '/dashboards/monitor',
+        name: 'monitor',
+        component: './Dashboard/Monitor',
       },
       {
-        path: '/dashboard/analysis',
+        path: '/dashboards/analysis',
         name: 'analysis',
         component: './Dashboard/Analysis',
       },
-      {
-        path: '/dashboard/workplace',
-        name: 'workplace',
-        component: './Dashboard/Workplace',
-      },
     ],
+  },
+  {
+    path: '/explore',
+    name: 'exploration',
+    icon: 'experiment',
+    component: './Exploration',
+  },
+  {
+    path: '/notebooks',
+    name: 'notebooks',
+    icon: 'code',
+    component: './Workplace',
   },
   {
     path: '/admin',
@@ -103,7 +110,7 @@ export default [
   },
   {
     path: '/',
-    redirect: '/dashboard',
+    redirect: '/dashboards',
   },
   {
     path: '*',
@@ -113,6 +120,6 @@ export default [
   {
     path: '/notebook',
     layout: false,
-    component: './Dashboard/Workplace/ObservableView/NotebookFullscreen',
+    component: './Workplace/ObservableView/NotebookFullscreen',
   },
 ];

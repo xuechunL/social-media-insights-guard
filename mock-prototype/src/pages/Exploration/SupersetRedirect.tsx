@@ -2,7 +2,7 @@ import { Button, Flex, Spin, Typography } from 'antd';
 import { useEffect, useState } from 'react';
 
 const SupersetRedirect = () => {
-  const [countdown, setCountdown] = useState(5);
+  const [countdown, setCountdown] = useState(3);
 
   const handleRedirect = () => {
     window.location.href = 'http://localhost:8088/superset/dashboard/15/'; // Superset Dashboard URL

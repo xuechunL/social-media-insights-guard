@@ -35,8 +35,8 @@ const Monitor: React.FC = () => {
       }
     >
       <PageHeader
-        title="Overview"
-        desc="Overview Mode provides (near) real-time monitoring and customizable visualization interfaces designed for non-expert users."
+        title="Monitor Dashboard"
+        desc="A pre-configured dashboard for real-time monitoring of social media metrics with configurable alerts."
       />
 
       <iframe
