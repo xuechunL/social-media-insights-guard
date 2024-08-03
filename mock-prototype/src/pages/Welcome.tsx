@@ -23,7 +23,7 @@ const Welcome: React.FC = () => {
         }}
       >
         <div>
-          <Typography.Title level={1}>Welcome to Social Media Insights</Typography.Title>
+          <Typography.Title level={1}>Welcome to InsightGuard</Typography.Title>
           <div
             style={{
               fontSize: '20px',
@@ -43,7 +43,7 @@ const Welcome: React.FC = () => {
               // width: '80%',
             }}
           >
-            Welcome to Social Media Insights, your one-stop platform for real-time monitoring, data
+            Welcome to InsightGuard, your one-stop platform for real-time monitoring, data
             exploration, and advanced visualizations in the context of culture wars. Our platform
             empowers analysts, experts, and engineers to uncover meaningful insights from social
             media interactions, helping you understand and mitigate the impact of polarization and
@@ -59,8 +59,8 @@ const Welcome: React.FC = () => {
               // width: '80%',
             }}
           >
-            With a focus on usability and comprehensive analysis, Social Media Insights provides a
-            range of tools designed to cater to different user needs. Whether you’re tracking key
+            With a focus on usability and comprehensive analysis, InsightGuard provides a range of
+            tools designed to cater to different user needs. Whether you’re tracking key
             influencers, analyzing sentiment trends, or creating custom dashboards, our platform is
             here to support your analytical journey.
           </p>

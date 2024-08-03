@@ -1,6 +1,6 @@
 import PageHeader from '@/components/PageHeader';
 import { PageContainer } from '@ant-design/pro-components';
-import { Alert, Card, Tabs, Typography } from 'antd';
+import { Card, Tabs } from 'antd';
 import React, { useRef, useState } from 'react';
 import AlertsList from './AlertsList';
 
@@ -11,7 +11,7 @@ type TargetKey = React.MouseEvent | React.KeyboardEvent | string;
 const SentimentAnalysisAlerts: React.FC = () => {
   return (
     <div>
-      <Alert
+      {/* <Alert
         message="Config for Sentiment Analysis Alerts"
         description={
           <div>
@@ -32,7 +32,7 @@ const SentimentAnalysisAlerts: React.FC = () => {
         type="info"
         showIcon
         closable
-      />
+      /> */}
       <AlertsList />
     </div>
   );
@@ -41,7 +41,7 @@ const SentimentAnalysisAlerts: React.FC = () => {
 const EngagementMetricsAlerts: React.FC = () => {
   return (
     <div>
-      <Alert
+      {/* <Alert
         message="Config for Engagement Metrics Alerts"
         description={
           <div>
@@ -62,7 +62,7 @@ const EngagementMetricsAlerts: React.FC = () => {
         type="info"
         showIcon
         closable
-      />
+      /> */}
       <AlertsList />
     </div>
   );
@@ -71,7 +71,7 @@ const EngagementMetricsAlerts: React.FC = () => {
 const UserBehaviorAlerts: React.FC = () => {
   return (
     <div>
-      <Alert
+      {/* <Alert
         message="Config for User Behaviour Alerts"
         description={
           <div>
@@ -92,7 +92,7 @@ const UserBehaviorAlerts: React.FC = () => {
         type="info"
         showIcon
         closable
-      />
+      /> */}
       <AlertsList />
     </div>
   );
@@ -101,7 +101,7 @@ const UserBehaviorAlerts: React.FC = () => {
 const TrendDetectionAlerts: React.FC = () => {
   return (
     <div>
-      <Alert
+      {/* <Alert
         message="Config for Trend Detection Alerts"
         description={
           <div>
@@ -122,7 +122,7 @@ const TrendDetectionAlerts: React.FC = () => {
         type="info"
         showIcon
         closable
-      />
+      /> */}
       <AlertsList />
     </div>
   );
@@ -204,7 +204,7 @@ const Alerts: React.FC = () => {
       />
       <Card>
         <Tabs
-          type="editable-card"
+          // type="editable-card"
           onChange={onChange}
           activeKey={activeKey}
           onEdit={onEdit}

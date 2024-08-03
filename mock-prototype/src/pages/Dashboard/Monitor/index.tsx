@@ -35,7 +35,7 @@ const Monitor: React.FC = () => {
       }
     >
       <PageHeader
-        title="Monitor Dashboard"
+        title="Monitoring Dashboard"
         desc="A pre-configured dashboard for real-time monitoring of social media metrics with configurable alerts."
       />
 

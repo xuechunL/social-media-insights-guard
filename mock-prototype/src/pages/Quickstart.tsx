@@ -24,35 +24,42 @@ export const InfoCard: React.FC<{
       style={{
         backgroundColor: token.colorBgContainer,
         boxShadow: token.boxShadow,
+        position: 'relative',
         borderRadius: '8px',
         fontSize: '14px',
         color: token.colorTextSecondary,
         lineHeight: '22px',
-        padding: '16px 19px',
-        minWidth: '300px',
-        flex: 1,
+        padding: '16px 18px',
+        // minWidth: '360px',
+        minWidth: 'calc(50% - 16px)',
+        flex: 0,
       }}
     >
       <div
         style={{
           display: 'flex',
-          gap: '4px',
+          gap: '6px',
           alignItems: 'center',
+          paddingBottom: 8,
+          fontSize: '1.25em',
         }}
       >
         {index && (
           <div
             style={{
-              width: 48,
-              height: 48,
-              lineHeight: '22px',
+              width: 24,
+              height: 24,
+              lineHeight: '24px',
               backgroundSize: '100%',
               textAlign: 'center',
-              padding: '8px 16px 16px 12px',
+              // padding: '8px 16px 16px 12px',
               color: '#FFF',
               fontWeight: 'bold',
-              backgroundImage:
-                "url('https://gw.alipayobjects.com/zos/bmw-prod/daaf8d50-8e6d-4251-905d-676a24ddfa12.svg')",
+              borderRadius: '4px',
+              backgroundColor: token.colorPrimary,
+              fontSize: '14px',
+              // backgroundImage:
+              //   "url('https://gw.alipayobjects.com/zos/bmw-prod/daaf8d50-8e6d-4251-905d-676a24ddfa12.svg')",
             }}
           >
             {index}
@@ -63,7 +70,7 @@ export const InfoCard: React.FC<{
             style={{
               fontSize: '16px',
               color: token.colorText,
-              paddingBottom: 8,
+              // paddingBottom: 8,
             }}
           >
             {title}
@@ -76,13 +83,22 @@ export const InfoCard: React.FC<{
           color: token.colorTextSecondary,
           // textAlign: 'justify',
           lineHeight: '22px',
-          marginBottom: 8,
+          marginBottom: 16,
         }}
       >
         {desc}
       </div>
       {href && (
-        <a href={href} target="_blank" rel="noreferrer noopener">
+        <a
+          href={href}
+          target="_blank"
+          rel="noreferrer noopener"
+          style={{
+            position: 'absolute',
+            right: 18,
+            bottom: 16,
+          }}
+        >
           Learn More {'>'}
         </a>
       )}
@@ -133,7 +149,7 @@ const Qucikstart: React.FC = () => {
               index={1}
               href="#"
               title="Dashboards"
-              desc="The Dashboards section is your hub for viewing and managing all your analytical dashboards. This includes real-time monitoring dashboards and custom dashboards created through the Exploration and Notebooks sections. Dashboards provide a comprehensive view of key metrics and trends, allowing you to stay informed and take action based on real-time data."
+              desc="The Dashboards section is your central hub for viewing and managing all analytical dashboards, including real-time monitoring and custom dashboards from the Exploration and Notebooks sections. Stay informed and take action with comprehensive views of key metrics and trends, and configurable alerts."
             />
             <InfoCard
               index={2}
@@ -148,21 +164,19 @@ const Qucikstart: React.FC = () => {
               desc="The Notebooks section provides a flexible and powerful environment for engineers to build visualization charts, dashboards, and reports using code. Leveraging the Observable Notebooks framework, this section is ideal for users who prefer a programmatic approach to data visualization."
             />
 
-            {canAdmin && (
-              <InfoCard
-                index={4}
-                title="Admin Logs"
-                href="/admin/logs"
-                desc="Access detailed logs of system activities, user actions, and data access to monitor the platform’s usage and security."
-              />
-            )}
+            <InfoCard
+              index={4}
+              title="Monitoring Alerts"
+              href="/dashboards/alerts"
+              desc="Create and manage alerts for different metrics. Set thresholds and receive notifications to stay ahead of critical events."
+            />
 
             {canAdmin && (
               <InfoCard
                 index={5}
-                title="Admin Alerts"
-                href="/admin/alerts"
-                desc="Create and manage alerts for different metrics. Set thresholds and receive notifications to stay ahead of critical events."
+                title="Admin Logs"
+                href="/logs"
+                desc="Access detailed logs of system activities, user actions, and data access to monitor the platform’s usage and security."
               />
             )}
           </div>

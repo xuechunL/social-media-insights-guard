@@ -132,8 +132,8 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
           theme={{
             token: {
               // Seed Token
-              // colorPrimary: '#20a7c9',
-              // colorLink: '#20a7c9',
+              colorPrimary: '#1ab394',
+              colorLink: '#1ab394',
               // borderRadius: 4,
               // Alias Token
               // colorBgContainer: '#f6ffed',

@@ -8,13 +8,13 @@ const Settings: ProLayoutProps & {
   logo?: string | boolean;
 } = {
   navTheme: 'light',
-  // colorPrimary: '#20a7c9',
-  layout: 'mix',
+  colorPrimary: '#1ab394',
+  layout: 'top',
   contentWidth: 'Fluid',
   fixedHeader: false,
-  fixSiderbar: true,
+  fixSiderbar: false,
   colorWeak: false,
-  title: 'Social Media Insights',
+  title: 'InsightGuard',
   pwa: true,
   logo: false, // don't show logo
   iconfontUrl: '',

@@ -41,6 +41,11 @@ export default [
         name: 'analysis',
         component: './Dashboard/Analysis',
       },
+      {
+        path: '/dashboards/alerts',
+        name: 'alerts',
+        component: './Admin/Alerts',
+      },
     ],
   },
   {
@@ -55,27 +60,34 @@ export default [
     icon: 'code',
     component: './Workplace',
   },
+  // {
+  //   path: '/admin',
+  //   name: 'admin',
+  //   icon: 'crown',
+  //   access: 'canAdmin',
+  //   routes: [
+  //     {
+  //       path: '/admin',
+  //       redirect: '/admin/logs',
+  //     },
+  //     {
+  //       path: '/admin/logs',
+  //       name: 'logs',
+  //       component: './Admin/TableList',
+  //     },
+  //     // {
+  //     //   path: '/admin/alerts',
+  //     //   name: 'alerts',
+  //     //   component: './Admin/Alerts',
+  //     // },
+  //   ],
+  // },
   {
-    path: '/admin',
-    name: 'admin',
-    icon: 'crown',
+    path: '/logs',
+    icon: 'fileSearch',
+    name: 'logs',
     access: 'canAdmin',
-    routes: [
-      {
-        path: '/admin',
-        redirect: '/admin/logs',
-      },
-      {
-        path: '/admin/logs',
-        name: 'logs',
-        component: './Admin/TableList',
-      },
-      {
-        path: '/admin/alerts',
-        name: 'alerts',
-        component: './Admin/Alerts',
-      },
-    ],
+    component: './Admin/TableList',
   },
   {
     path: '/account',
@@ -89,8 +101,8 @@ export default [
   },
   {
     path: '/docs',
-    name: 'documentation',
-    icon: 'fileText',
+    name: 'help',
+    icon: 'questionCircle',
     routes: [
       {
         path: '/docs',
