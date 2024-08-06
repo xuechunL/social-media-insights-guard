@@ -9,10 +9,10 @@ import {
 import type { ActionType, ProColumns, ProDescriptionsItemProps } from '@ant-design/pro-components';
 import { FooterToolbar, ProDescriptions, ProTable } from '@ant-design/pro-components';
 // import { FormattedMessage, useIntl } from '@umijs/max';
+import type { FormValueType } from '@/pages/Admin/TableList/components/UpdateForm';
+import UpdateForm from '@/pages/Admin/TableList/components/UpdateForm';
 import { Button, Drawer, message, Popconfirm, Space, Tag, Tooltip } from 'antd';
 import React, { useRef, useState } from 'react';
-import type { FormValueType } from '../TableList/components/UpdateForm';
-import UpdateForm from '../TableList/components/UpdateForm';
 
 /**
  * @en-US Add node
@@ -137,7 +137,7 @@ const AlertsList: React.FC = () => {
 
   const columns: ProColumns<API.RuleListItem>[] = [
     {
-      title: 'Rule',
+      title: 'Alert',
       dataIndex: 'name',
       sorter: true,
       render: (dom, entity) => {
@@ -165,7 +165,7 @@ const AlertsList: React.FC = () => {
       },
     },
     {
-      title: 'Timestamp',
+      title: 'Updated at',
       sorter: true,
       dataIndex: 'updatedAt',
       valueType: 'dateTime',
@@ -204,11 +204,11 @@ const AlertsList: React.FC = () => {
       hideInForm: true,
       valueEnum: {
         0: {
-          text: 'Shut down',
+          text: 'Closed',
           status: 'Default',
         },
         1: {
-          text: 'Running',
+          text: 'Open',
           status: 'Processing',
         },
         2: {
@@ -216,13 +216,13 @@ const AlertsList: React.FC = () => {
           status: 'Success',
         },
         3: {
-          text: 'Abnormal',
+          text: 'Raised',
           status: 'Error',
         },
       },
     },
     {
-      title: 'Operating',
+      title: 'Actions',
       dataIndex: 'option',
       valueType: 'option',
       render: (_, record) => (
@@ -332,7 +332,7 @@ const AlertsList: React.FC = () => {
         updateModalOpen={updateModalOpen}
         values={currentRow || {}}
       />
-      {/* TODO: Alerts details with Charts */}
+      {/* TODO: Alert Details with Charts */}
       <Drawer
         width={600}
         open={showDetail}

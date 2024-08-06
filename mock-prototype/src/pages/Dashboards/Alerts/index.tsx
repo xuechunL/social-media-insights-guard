@@ -68,7 +68,7 @@ const EngagementMetricsAlerts: React.FC = () => {
   );
 };
 
-const UserBehaviorAlerts: React.FC = () => {
+const BiasDetectionAlerts: React.FC = () => {
   return (
     <div>
       {/* <Alert
@@ -98,7 +98,7 @@ const UserBehaviorAlerts: React.FC = () => {
   );
 };
 
-const TrendDetectionAlerts: React.FC = () => {
+const TrendingDetectionAlerts: React.FC = () => {
   return (
     <div>
       {/* <Alert
@@ -136,12 +136,12 @@ const initialItems = [
     closable: false,
   },
   {
-    label: 'User Behavior Alerts',
-    children: <UserBehaviorAlerts />,
+    label: 'Bias Detection',
+    children: <BiasDetectionAlerts />,
     key: '2',
   },
   { label: 'Engagement Metrics Alerts', children: <EngagementMetricsAlerts />, key: '3' },
-  { label: 'Trend Detection Alerts', children: <TrendDetectionAlerts />, key: '4' },
+  { label: 'Trending Detection Alerts', children: <TrendingDetectionAlerts />, key: '4' },
 ];
 
 const Alerts: React.FC = () => {

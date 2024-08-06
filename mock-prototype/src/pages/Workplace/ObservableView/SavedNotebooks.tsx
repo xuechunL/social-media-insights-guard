@@ -154,7 +154,7 @@ const columns: TableProps<DataType>['columns'] = [
 const data: DataType[] = [
   {
     key: '1',
-    name: 'User Behaviour of Hot HashTags on Facebook Dashboard',
+    name: 'User Engagement Analysis of Hot HashTags on Facebook',
     date: '2024-06-01 09:09:09',
     type: 'Published',
     tags: ['markdown', 'facebook'],

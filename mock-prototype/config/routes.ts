@@ -29,22 +29,22 @@ export default [
     routes: [
       {
         path: '/dashboards',
-        redirect: '/dashboards/monitor',
+        redirect: '/dashboards/overview',
       },
       {
-        path: '/dashboards/monitor',
-        name: 'monitor',
-        component: './Dashboard/Monitor',
+        path: '/dashboards/overview',
+        name: 'overview',
+        component: './Dashboards/Overview',
       },
+      // Different Project(Theme) Dashboard Page
       {
-        path: '/dashboards/analysis',
-        name: 'analysis',
-        component: './Dashboard/Analysis',
+        path: '/dashboards/:project',
+        component: '@/pages/Dashboards/$project.tsx',
       },
       {
         path: '/dashboards/alerts',
         name: 'alerts',
-        component: './Admin/Alerts',
+        component: './Dashboards/Alerts',
       },
     ],
   },

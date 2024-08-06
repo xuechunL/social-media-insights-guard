@@ -149,13 +149,13 @@ const Qucikstart: React.FC = () => {
               index={1}
               href="#"
               title="Dashboards"
-              desc="The Dashboards section is your central hub for viewing and managing all analytical dashboards, including real-time monitoring and custom dashboards from the Exploration and Notebooks sections. Stay informed and take action with comprehensive views of key metrics and trends, and configurable alerts."
+              desc="The Dashboards section is your central hub for viewing and managing all analytical dashboards, including real-time monitoring key metrics and custom dashboards from the Exploration and Notebooks sections. Stay informed and take action with comprehensive views of key metrics and trends, and configurable alerts."
             />
             <InfoCard
               index={2}
               title="Exploration"
               href="https://superset.apache.org/docs/intro"
-              desc="The Exploration section leverages the powerful Apache Superset framework to enable experts to build custom dashboards using their own datasets. This section is designed for users who want to delve deeper into data analysis and create bespoke visualizations that cater to specific needs."
+              desc="The Exploration section leverages the powerful Apache Superset framework to enable experts to build custom dashboards using their own datasets. This section is designed for experts who want to delve deeper into data analysis and create bespoke visualizations that cater to specific needs."
             />
             <InfoCard
               index={3}
