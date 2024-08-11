@@ -33,7 +33,7 @@ export default [
       },
       {
         path: '/dashboards/overview',
-        name: 'overview',
+        // name: 'overview',
         component: './Dashboards/Overview',
       },
       // Different Project(Theme) Dashboard Page
@@ -41,11 +41,11 @@ export default [
         path: '/dashboards/:project',
         component: '@/pages/Dashboards/$project.tsx',
       },
-      {
-        path: '/dashboards/alerts',
-        name: 'alerts',
-        component: './Dashboards/Alerts',
-      },
+      // {
+      //   path: '/dashboards/alerts',
+      //   name: 'alerts',
+      //   component: './Dashboards/Alerts',
+      // },
     ],
   },
   {
@@ -83,6 +83,12 @@ export default [
   //   ],
   // },
   {
+    path: '/alerts',
+    name: 'alerts',
+    icon: 'alert',
+    component: './Alerts',
+  },
+  {
     path: '/logs',
     icon: 'fileSearch',
     name: 'logs',
@@ -101,7 +107,7 @@ export default [
   },
   {
     path: '/docs',
-    name: 'help',
+    // name: 'help',
     icon: 'questionCircle',
     routes: [
       {
@@ -110,14 +116,14 @@ export default [
       },
       {
         path: '/docs/intro',
-        name: 'intro',
+        // name: 'intro',
         component: './Welcome',
       },
-      {
-        path: '/docs/quickstart',
-        name: 'quickstart',
-        component: './Quickstart',
-      },
+      // {
+      //   path: '/docs/quickstart',
+      //   name: 'quickstart',
+      //   component: './Quickstart',
+      // },
     ],
   },
   {

@@ -68,7 +68,7 @@ const EngagementMetricsAlerts: React.FC = () => {
   );
 };
 
-const BiasDetectionAlerts: React.FC = () => {
+const EchoChambersDetectionAlerts: React.FC = () => {
   return (
     <div>
       {/* <Alert
@@ -136,8 +136,8 @@ const initialItems = [
     closable: false,
   },
   {
-    label: 'Bias Detection',
-    children: <BiasDetectionAlerts />,
+    label: 'Echo Chambers Detection',
+    children: <EchoChambersDetectionAlerts />,
     key: '2',
   },
   { label: 'Engagement Metrics Alerts', children: <EngagementMetricsAlerts />, key: '3' },

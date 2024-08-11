@@ -7,7 +7,7 @@ export default {
   'menu.help.quickstart': 'Quickstart',
   'menu.admin': 'Admin',
   'menu.admin.settings': 'Settings',
-  'menu.admin.alerts': 'Alerts',
+  'menu.alerts': 'Alerts',
   'menu.logs': 'Logs',
   'menu.login': 'Login',
   'menu.help': 'Help',

@@ -2,11 +2,10 @@ import { AvatarDropdown, AvatarName, SelectLang } from '@/components';
 import { currentUser as queryCurrentUser } from '@/services/ant-design-pro/api';
 import type { Settings as LayoutSettings } from '@ant-design/pro-components';
 
-import { BellOutlined } from '@ant-design/icons';
 import { SettingDrawer } from '@ant-design/pro-components';
 import type { RunTimeLayoutConfig } from '@umijs/max';
 import { history } from '@umijs/max';
-import { Badge, ConfigProvider } from 'antd';
+import { ConfigProvider } from 'antd';
 import defaultSettings from '../config/defaultSettings';
 import { errorConfig } from './requestErrorConfig';
 const isDev = process.env.NODE_ENV === 'development';
@@ -62,17 +61,17 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
   return {
     actionsRender: () => [
       <SelectLang key="SelectLang" />,
-      <span
-        key="inbox"
-        style={{ display: 'inline-flex' }}
-        onClick={() => {
-          history.push('/admin/alerts');
-        }}
-      >
-        <Badge count={5} size="small">
-          <BellOutlined />
-        </Badge>
-      </span>,
+      // <span
+      //   key="inbox"
+      //   style={{ display: 'inline-flex' }}
+      //   onClick={() => {
+      //     history.push('/alerts');
+      //   }}
+      // >
+      //   <Badge count={5} size="small">
+      //     <BellOutlined />
+      //   </Badge>
+      // </span>,
     ],
     avatarProps: {
       src: initialState?.currentUser?.avatar,

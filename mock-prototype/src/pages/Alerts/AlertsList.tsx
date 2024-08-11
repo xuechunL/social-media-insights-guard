@@ -11,8 +11,10 @@ import { FooterToolbar, ProDescriptions, ProTable } from '@ant-design/pro-compon
 // import { FormattedMessage, useIntl } from '@umijs/max';
 import type { FormValueType } from '@/pages/Admin/TableList/components/UpdateForm';
 import UpdateForm from '@/pages/Admin/TableList/components/UpdateForm';
-import { Button, Drawer, message, Popconfirm, Space, Tag, Tooltip } from 'antd';
+import { Button, Drawer, Flex, message, Popconfirm, Space, Tag, Tooltip } from 'antd';
 import React, { useRef, useState } from 'react';
+
+import AlertLineChart from '@/components/Charts/AlertLine';
 
 /**
  * @en-US Add node
@@ -204,11 +206,11 @@ const AlertsList: React.FC = () => {
       hideInForm: true,
       valueEnum: {
         0: {
-          text: 'Closed',
-          status: 'Default',
+          text: 'Pending',
+          status: 'Warning',
         },
         1: {
-          text: 'Open',
+          text: 'Live',
           status: 'Processing',
         },
         2: {
@@ -216,7 +218,7 @@ const AlertsList: React.FC = () => {
           status: 'Success',
         },
         3: {
-          text: 'Raised',
+          text: 'Firing',
           status: 'Error',
         },
       },
@@ -345,7 +347,7 @@ const AlertsList: React.FC = () => {
         {currentRow?.name && (
           <ProDescriptions<API.RuleListItem>
             column={2}
-            title={currentRow?.name}
+            title="Alert Information"
             request={async () => ({
               data: currentRow || {},
             })}
@@ -355,6 +357,28 @@ const AlertsList: React.FC = () => {
             columns={columns as ProDescriptionsItemProps<API.RuleListItem>[]}
           />
         )}
+        <div style={{ marginTop: 24 }}>
+          <div>
+            <h3>Alert History</h3>
+            <p>
+              Historical data for the selected alert.{' '}
+              <a href="#">Show more in the Dashboard &gt;</a>
+            </p>
+          </div>
+
+          <AlertLineChart />
+
+          <Flex justify="end" style={{ marginTop: 24 }}>
+            <Button
+              type="primary"
+              onClick={() => {
+                setShowDetail(false);
+              }}
+            >
+              Edit Alert Configuration
+            </Button>
+          </Flex>
+        </div>
       </Drawer>
     </div>
   );

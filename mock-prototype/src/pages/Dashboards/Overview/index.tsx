@@ -5,13 +5,21 @@ import {
   FireOutlined,
   LikeOutlined,
   MobileOutlined,
+  ReloadOutlined,
   UserOutlined,
 } from '@ant-design/icons';
 import { PageContainer } from '@ant-design/pro-components';
 import { useModel } from '@umijs/max';
-import { Card, Col, Flex, Row, Statistic, Tag, Typography } from 'antd';
+import { Button, Card, Col, DatePicker, Flex, Row, Space, Statistic, Tag, Typography } from 'antd';
+
 import React from 'react';
+
+import LevelBar from '@/components/Charts/LevelBar';
+import StatusPie from '@/components/Charts/StatusPie';
 import Projects from './Projects';
+import PublishedDashboards from './Published';
+
+const { RangePicker } = DatePicker;
 
 // TODO: Monitor View for non-expert users (fake and build more charts for social media metrics, user behavior, and hashtags trends)
 // TODO: overview of the most important metrics and alerts for monitoring social media metrics
@@ -50,54 +58,101 @@ const Overview: React.FC = () => {
         // desc="A pre-configured dashboard for real-time monitoring of social media metrics with configurable alerts."
       />
 
-      <p>Here&#39;s a summary of what&#39;s happening right now.</p>
+      <Row gutter={16} justify="end" style={{ marginBottom: 16 }}>
+        <Col span={6}>
+          <Space>
+            <RangePicker
+              showTime={{
+                format: 'HH:mm',
+              }}
+              format="YYYY-MM-DD HH:mm"
+              onChange={(value, dateString) => {
+                console.log('Selected Time: ', value);
+                console.log('Formatted Selected Time: ', dateString);
+              }}
+              onOk={(value) => {
+                console.log('onOk: ', value);
+              }}
+            />
+
+            <Button type="primary">
+              <ReloadOutlined />
+            </Button>
+          </Space>
+        </Col>
+      </Row>
 
       <Row gutter={16}>
-        <Col span={6}>
-          <Card bordered={false}>
-            <Statistic
-              title="Social Media Platforms"
-              value={6}
-              prefix={<MobileOutlined style={{ marginRight: 3, fontSize: '0.9em' }} />}
-              // suffix="%"
-            />
-          </Card>
+        <Col span={8}>
+          <p>Here&#39;s a summary of what&#39;s happening right now.</p>
+          <Row gutter={16} style={{ marginBottom: 16 }}>
+            <Col span={12}>
+              <Card bordered={false}>
+                <Statistic
+                  title="Social Media Platforms"
+                  value={3}
+                  prefix={<MobileOutlined style={{ marginRight: 3, fontSize: '0.9em' }} />}
+                  // suffix="%"
+                />
+              </Card>
+            </Col>
+            <Col span={12}>
+              <Card bordered={false}>
+                <Statistic
+                  title="Trending Topics"
+                  value={1128}
+                  precision={2}
+                  valueStyle={{ color: '#3f8600' }}
+                  prefix={<FireOutlined />}
+                  suffix={<ArrowUpOutlined style={{ fontSize: '0.5em' }} />}
+                />
+              </Card>
+            </Col>
+          </Row>
+          <Row gutter={16}>
+            <Col span={12}>
+              <Card bordered={false}>
+                <Statistic
+                  title="Total Reach"
+                  value="2.35 M"
+                  // precision={2}
+                  // suffix="M"
+                  valueStyle={{ color: '#cf1322' }}
+                  prefix={<UserOutlined />}
+                  suffix={<ArrowDownOutlined style={{ fontSize: '0.5em' }} />}
+                />
+              </Card>
+            </Col>
+            <Col span={12}>
+              <Card bordered={false}>
+                <Statistic
+                  title="Total Likes"
+                  value="3.2 M"
+                  prefix={<LikeOutlined />}
+                  valueStyle={{ color: '#3f8600' }}
+                  suffix={<ArrowUpOutlined style={{ fontSize: '0.5em' }} />}
+                />
+              </Card>
+            </Col>
+          </Row>
         </Col>
-        <Col span={6}>
-          <Card bordered={false}>
-            <Statistic
-              title="Trending Topics"
-              value={1128}
-              precision={2}
-              valueStyle={{ color: '#3f8600' }}
-              prefix={<FireOutlined />}
-              suffix={<ArrowUpOutlined style={{ fontSize: '0.5em' }} />}
-            />
-          </Card>
-        </Col>
-        <Col span={6}>
-          <Card bordered={false}>
-            <Statistic
-              title="Total Reach"
-              value="2.35 M"
-              // precision={2}
-              // suffix="M"
-              valueStyle={{ color: '#cf1322' }}
-              prefix={<UserOutlined />}
-              suffix={<ArrowDownOutlined style={{ fontSize: '0.5em' }} />}
-            />
-          </Card>
-        </Col>
-        <Col span={6}>
-          <Card bordered={false}>
-            <Statistic
-              title="Total Likes"
-              value="3.2 M"
-              prefix={<LikeOutlined />}
-              valueStyle={{ color: '#3f8600' }}
-              suffix={<ArrowUpOutlined style={{ fontSize: '0.5em' }} />}
-            />
-          </Card>
+
+        <Col span={16}>
+          <p>Alters in last 24h</p>
+          <Row gutter={16} style={{ marginBottom: 16 }}>
+            <Col span={12}>
+              <Card bordered={false}>
+                {/* <Demo /> */}
+                <StatusPie />
+              </Card>
+            </Col>
+            <Col span={12}>
+              <Card bordered={false}>
+                {/* <Demo /> */}
+                <LevelBar />
+              </Card>
+            </Col>
+          </Row>
         </Col>
       </Row>
 
@@ -117,7 +172,7 @@ const Overview: React.FC = () => {
                 borderRadius: 8,
               }}
             >
-              #ClimateChange
+              #Anti-immigration
             </Tag>
             <Tag
               bordered={false}
@@ -165,7 +220,7 @@ const Overview: React.FC = () => {
                 borderRadius: 8,
               }}
             >
-              #Olympics2024
+              #Paris2024
             </Tag>
           </Flex>
         </Col>
@@ -204,30 +259,16 @@ const Overview: React.FC = () => {
       </Row>
 
       <Row style={{ margin: '24px 0 16px' }} gutter={8}>
-        <Col span={24}>
-          <Typography.Title level={3}>Insight Hub</Typography.Title>
-        </Col>
-        <Col span={12}>
+        <Col span={18}>
           <Card>
             <Typography.Title level={4}>Published Dashboards</Typography.Title>
-            <Projects />
+            <PublishedDashboards />
           </Card>
         </Col>
-        <Col span={12}>
+        <Col span={6}>
           <Card>
-            <Typography.Title level={4}>Alerts Overview</Typography.Title>
-            {/* 最新警报摘要
-
-位置：主内容区右侧
-显示最近 5 个重要警报
-每个警报项包括：
-
-严重程度图标（使用颜色编码：红色 - 严重，黄色 - 警告，绿色 - 提示）
-简短描述
-触发时间
-
-
-底部有 "查看所有警报" 的链接 */}
+            <Typography.Title level={4}>Use Case Examples</Typography.Title>
+            <Projects />
           </Card>
         </Col>
       </Row>

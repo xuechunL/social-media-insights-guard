@@ -8,7 +8,7 @@ const PageHeader: React.FC<{
   href?: string;
 }> = ({ title, desc }) => {
   const handleClick = () => {
-    history.push('/docs/quickstart');
+    history.push('/docs#quickstart');
   };
 
   return (

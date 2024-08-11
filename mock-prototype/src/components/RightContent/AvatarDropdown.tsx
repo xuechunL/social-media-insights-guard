@@ -1,5 +1,5 @@
 import { outLogin } from '@/services/ant-design-pro/api';
-import { LogoutOutlined, SettingOutlined } from '@ant-design/icons';
+import { LogoutOutlined, QuestionCircleOutlined, SettingOutlined } from '@ant-design/icons';
 import { history, useModel } from '@umijs/max';
 import { Spin } from 'antd';
 import { createStyles } from 'antd-style';
@@ -72,6 +72,11 @@ export const AvatarDropdown: React.FC<GlobalHeaderRightProps> = ({ menu, childre
         loginOut();
         return;
       }
+
+      if (key === 'help') {
+        history.push('/docs');
+        return;
+      }
       history.push(`/account/${key}`);
     },
     [setInitialState],
@@ -102,11 +107,11 @@ export const AvatarDropdown: React.FC<GlobalHeaderRightProps> = ({ menu, childre
   const menuItems = [
     ...(menu
       ? [
-          // {
-          //   key: 'center',
-          //   icon: <UserOutlined />,
-          //   label: 'User Centre',
-          // },
+          {
+            key: 'help',
+            icon: <QuestionCircleOutlined />,
+            label: 'Help Center',
+          },
           {
             key: 'settings',
             icon: <SettingOutlined />,

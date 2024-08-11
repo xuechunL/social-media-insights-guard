@@ -1,4 +1,5 @@
 import access from '@/access';
+import PageHeader from '@/components/PageHeader';
 import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
 import { PageContainer } from '@ant-design/pro-components';
 import { useIntl, useModel } from '@umijs/max';
@@ -47,6 +48,7 @@ const Account: React.FC = () => {
 
   return (
     <PageContainer>
+      <PageHeader title="User Settings" />
       <Flex align="baseline" gap="6px" wrap>
         <Card
           title={intl.formatMessage({
