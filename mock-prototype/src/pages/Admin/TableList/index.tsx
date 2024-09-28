@@ -8,7 +8,7 @@ import {
   ProTable,
 } from '@ant-design/pro-components';
 import { FormattedMessage, useIntl } from '@umijs/max';
-import { Button, Drawer, Input, message } from 'antd';
+import { Button, Card, Drawer, Input, message, Tabs } from 'antd';
 import React, { useRef, useState } from 'react';
 import type { FormValueType } from './components/UpdateForm';
 import UpdateForm from './components/UpdateForm';
@@ -237,39 +237,59 @@ const TableList: React.FC = () => {
 
   return (
     <PageContainer>
-      <PageHeader
-        title="Activity Logs"
-        desc="Access detailed logs to monitor system activities, user actions, and data access."
-      />
-      <ProTable<API.RuleListItem, API.PageParams>
-        // headerTitle={intl.formatMessage({
-        //   id: 'pages.searchTable.title',
-        //   defaultMessage: 'Enquiry form',
-        // })}
-        actionRef={actionRef}
-        rowKey="key"
-        search={{
-          labelWidth: 90,
-        }}
-        // toolBarRender={() => [
-        //   <Button
-        //     type="primary"
-        //     key="primary"
-        //     onClick={() => {
-        //       handleModalOpen(true);
-        //     }}
-        //   >
-        //     <PlusOutlined /> <FormattedMessage id="pages.searchTable.new" defaultMessage="New" />
-        //   </Button>,
-        // ]}
-        request={rule}
-        columns={columns}
-        rowSelection={{
-          onChange: (_, selectedRows) => {
-            setSelectedRows(selectedRows);
+      <PageHeader title="Admin Mode" desc="This page can only be accessed by administrators." />
+
+      <Tabs
+        // type="editable-card"
+        items={[
+          {
+            label: 'Activity Logs',
+            children: (
+              <ProTable<API.RuleListItem, API.PageParams>
+                // headerTitle={intl.formatMessage({
+                //   id: 'pages.searchTable.title',
+                //   defaultMessage: 'Enquiry form',
+                // })}
+                actionRef={actionRef}
+                rowKey="key"
+                search={{
+                  labelWidth: 90,
+                }}
+                // toolBarRender={() => [
+                //   <Button
+                //     type="primary"
+                //     key="primary"
+                //     onClick={() => {
+                //       handleModalOpen(true);
+                //     }}
+                //   >
+                //     <PlusOutlined /> <FormattedMessage id="pages.searchTable.new" defaultMessage="New" />
+                //   </Button>,
+                // ]}
+                request={rule}
+                columns={columns}
+                rowSelection={{
+                  onChange: (_, selectedRows) => {
+                    setSelectedRows(selectedRows);
+                  },
+                }}
+              />
+            ),
+            key: '1',
           },
-        }}
+          {
+            label: 'User Management',
+            children: (
+              <Card>
+                <h2>Role Management</h2>
+              </Card>
+            ),
+            key: '2',
+            closable: false,
+          },
+        ]}
       />
+
       {selectedRowsState?.length > 0 && (
         <FooterToolbar
           extra={

@@ -1,6 +1,6 @@
 import PageHeader from '@/components/PageHeader';
 import { PageContainer } from '@ant-design/pro-components';
-import { Card, Tabs } from 'antd';
+import { Tabs } from 'antd';
 import React, { useRef, useState } from 'react';
 import AlertsList from './AlertsList';
 
@@ -202,15 +202,13 @@ const Alerts: React.FC = () => {
         title="Monitoring Alerts"
         desc="Alerts Mode allows you to configure alerts for the Overview Mode. Customize thresholds, notification preferences, and alerting mechanisms to stay informed about critical events in real time."
       />
-      <Card>
-        <Tabs
-          // type="editable-card"
-          onChange={onChange}
-          activeKey={activeKey}
-          onEdit={onEdit}
-          items={items}
-        />
-      </Card>
+      <Tabs
+        // type="editable-card"
+        onChange={onChange}
+        activeKey={activeKey}
+        onEdit={onEdit}
+        items={items}
+      />
     </PageContainer>
   );
 };

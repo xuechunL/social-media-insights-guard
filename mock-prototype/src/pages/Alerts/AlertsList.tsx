@@ -1,6 +1,8 @@
 import { removeRule, rule, updateRule } from '@/services/ant-design-pro/api';
 import {
   BellOutlined,
+  CheckOutlined,
+  CloseOutlined,
   DeleteOutlined,
   EditOutlined,
   PlusOutlined,
@@ -11,7 +13,18 @@ import { FooterToolbar, ProDescriptions, ProTable } from '@ant-design/pro-compon
 // import { FormattedMessage, useIntl } from '@umijs/max';
 import type { FormValueType } from '@/pages/Admin/TableList/components/UpdateForm';
 import UpdateForm from '@/pages/Admin/TableList/components/UpdateForm';
-import { Button, Drawer, Flex, message, Popconfirm, Space, Tag, Tooltip } from 'antd';
+import {
+  Button,
+  Drawer,
+  Flex,
+  message,
+  Popconfirm,
+  Space,
+  Switch,
+  Tag,
+  Tooltip,
+  Typography,
+} from 'antd';
 import React, { useRef, useState } from 'react';
 
 import AlertLineChart from '@/components/Charts/AlertLine';
@@ -357,7 +370,7 @@ const AlertsList: React.FC = () => {
             columns={columns as ProDescriptionsItemProps<API.RuleListItem>[]}
           />
         )}
-        <div style={{ marginTop: 24 }}>
+        <div style={{ marginTop: 30 }}>
           <div>
             <h3>Alert History</h3>
             <p>
@@ -368,7 +381,33 @@ const AlertsList: React.FC = () => {
 
           <AlertLineChart />
 
-          <Flex justify="end" style={{ marginTop: 24 }}>
+          <div style={{ marginTop: 30 }}>
+            <h3>Notification Methods</h3>
+            <div style={{ marginBottom: '2rem' }}>
+              <Flex wrap justify="space-between" align="center">
+                <Typography.Text strong>E-mail</Typography.Text>
+                <Switch
+                  checkedChildren={<CheckOutlined />}
+                  unCheckedChildren={<CloseOutlined />}
+                  defaultChecked
+                />
+              </Flex>
+              InsightGuard will send you alerts notifications via e-mails.
+            </div>
+            <div style={{ marginBottom: '2rem' }}>
+              <Flex wrap justify="space-between" align="center">
+                <Typography.Text strong>SMS</Typography.Text>
+                <Switch
+                  checkedChildren={<CheckOutlined />}
+                  unCheckedChildren={<CloseOutlined />}
+                  defaultChecked
+                />
+              </Flex>
+              InsightGuard will send you alerts notifications via SMS.
+            </div>
+          </div>
+
+          <Flex justify="end" style={{ marginTop: 48 }}>
             <Button
               type="primary"
               onClick={() => {

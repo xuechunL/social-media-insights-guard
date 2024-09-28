@@ -41,7 +41,7 @@ const Page: React.FC = () => {
     ],
   };
 
-  return <ReactECharts option={option} style={{ height: 300 }} />;
+  return <ReactECharts option={option} style={{ height: 350 }} />;
 };
 
 export default Page;

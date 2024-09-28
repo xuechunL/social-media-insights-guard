@@ -175,9 +175,18 @@ const Qucikstart: React.FC = () => {
         {canAdmin && (
           <InfoCard
             index={5}
-            title="Admin Logs"
-            href="/logs"
+            title="Activity Logs"
+            href="/admin"
             desc="Access detailed logs of system activities, user actions, and data access to monitor the platform’s usage and security."
+          />
+        )}
+
+        {canAdmin && (
+          <InfoCard
+            index={5}
+            title="User Management"
+            href="/admin"
+            desc="The Role Management section is designed exclusively for admin users to manage user roles and permissions efficiently. "
           />
         )}
       </div>

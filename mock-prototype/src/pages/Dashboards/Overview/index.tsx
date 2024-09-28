@@ -59,7 +59,7 @@ const Overview: React.FC = () => {
       />
 
       <Row gutter={16} justify="end" style={{ marginBottom: 16 }}>
-        <Col span={6}>
+        <Col span={24} style={{ textAlign: 'end' }}>
           <Space>
             <RangePicker
               showTime={{
@@ -84,13 +84,15 @@ const Overview: React.FC = () => {
 
       <Row gutter={16}>
         <Col span={8}>
-          <p>Here&#39;s a summary of what&#39;s happening right now.</p>
-          <Row gutter={16} style={{ marginBottom: 16 }}>
+          <Typography.Text strong>
+            Here&#39;s a summary of what&#39;s happening right now.
+          </Typography.Text>
+          <Row gutter={16} style={{ marginTop: 16 }}>
             <Col span={12}>
               <Card bordered={false}>
                 <Statistic
                   title="Social Media Platforms"
-                  value={3}
+                  value={5}
                   prefix={<MobileOutlined style={{ marginRight: 3, fontSize: '0.9em' }} />}
                   // suffix="%"
                 />
@@ -109,7 +111,7 @@ const Overview: React.FC = () => {
               </Card>
             </Col>
           </Row>
-          <Row gutter={16}>
+          <Row gutter={16} style={{ marginBottom: 8, marginTop: 8 }}>
             <Col span={12}>
               <Card bordered={false}>
                 <Statistic
@@ -135,11 +137,81 @@ const Overview: React.FC = () => {
               </Card>
             </Col>
           </Row>
+
+          <Row>
+            <Col span={24}>
+              <Card>
+                <Typography.Text strong>Global Trends</Typography.Text>
+                <Flex gap={8} wrap style={{ marginTop: 8 }}>
+                  <Tag
+                    bordered={false}
+                    style={{
+                      fontSize: 14,
+                      paddingTop: 8,
+                      paddingBottom: 8,
+                      backgroundColor: '#E8EDF2',
+                      borderRadius: 8,
+                    }}
+                  >
+                    #Anti-immigration
+                  </Tag>
+                  <Tag
+                    bordered={false}
+                    style={{
+                      fontSize: 14,
+                      paddingTop: 8,
+                      paddingBottom: 8,
+                      backgroundColor: '#E8EDF2',
+                      borderRadius: 8,
+                    }}
+                  >
+                    #BlackLiveMatter
+                  </Tag>
+                  <Tag
+                    bordered={false}
+                    style={{
+                      fontSize: 14,
+                      paddingTop: 8,
+                      paddingBottom: 8,
+                      backgroundColor: '#E8EDF2',
+                      borderRadius: 8,
+                    }}
+                  >
+                    #TransRights
+                  </Tag>
+                  <Tag
+                    bordered={false}
+                    style={{
+                      fontSize: 14,
+                      paddingTop: 8,
+                      paddingBottom: 8,
+                      backgroundColor: '#E8EDF2',
+                      borderRadius: 8,
+                    }}
+                  >
+                    #USElection2024
+                  </Tag>
+                  <Tag
+                    bordered={false}
+                    style={{
+                      fontSize: 14,
+                      paddingTop: 8,
+                      paddingBottom: 8,
+                      backgroundColor: '#E8EDF2',
+                      borderRadius: 8,
+                    }}
+                  >
+                    #Paris2024
+                  </Tag>
+                </Flex>
+              </Card>
+            </Col>
+          </Row>
         </Col>
 
         <Col span={16}>
-          <p>Alters in last 24h</p>
-          <Row gutter={16} style={{ marginBottom: 16 }}>
+          <Typography.Text strong>Alters in last 24h</Typography.Text>
+          <Row gutter={16} style={{ marginBottom: 16, marginTop: 16 }}>
             <Col span={12}>
               <Card bordered={false}>
                 {/* <Demo /> */}
@@ -156,8 +228,8 @@ const Overview: React.FC = () => {
         </Col>
       </Row>
 
-      <Row style={{ margin: '24px 0 16px' }}>
-        <Col span={24}>
+      <Row style={{ margin: '16px 0' }}>
+        {/* <Col span={24}>
           <Typography.Title level={3}>Global Trends</Typography.Title>
         </Col>
         <Col span={24}>
@@ -223,35 +295,16 @@ const Overview: React.FC = () => {
               #Paris2024
             </Tag>
           </Flex>
-        </Col>
+        </Col> */}
 
-        <Col span={24} style={{ marginTop: 16 }}>
+        <Col span={24}>
           <Card bordered={false}>
             <Row>
               <Col span={24}>
+                <Typography.Text strong>Key Metrics Monitoring</Typography.Text>
+              </Col>
+              <Col span={24}>
                 <img src="/metrics-global-trends.png" alt="" style={{ width: '100%' }} />
-              </Col>
-            </Row>
-
-            <Row style={{ marginTop: 16 }} gutter={8}>
-              <Col span={8}>
-                <Typography.Title level={4}>Global Sentiment Trend</Typography.Title>
-                Sentiment Trend Chart
-                {/* TODO: b. 情感分析总览图 */}
-              </Col>
-              <Col span={8}>
-                <Typography.Title level={4}>Platforms Distribution</Typography.Title>
-                Social Media Platforms Distribution Pie Chart
-                {/* TODO: platforms */}
-              </Col>
-
-              <Col span={8}>
-                {/* TODO: 极化指标
-位置：主内容区左下角
-使用仪表盘样式的可视化
-显示当前的极化程度，从 "低" 到 "高" 使用颜色渐变*/}
-                <Typography.Title level={4}>Polarisation Indicator</Typography.Title>
-                Polarisation Gauge Chart
               </Col>
             </Row>
           </Card>

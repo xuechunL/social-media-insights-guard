@@ -71,7 +71,7 @@ const Page: React.FC = () => {
     <>
       <ReactECharts
         option={option}
-        style={{ height: 300 }}
+        style={{ height: 350 }}
         onChartReady={onChartReady}
         onEvents={{
           click: onChartClick,

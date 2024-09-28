@@ -89,9 +89,9 @@ export default [
     component: './Alerts',
   },
   {
-    path: '/logs',
-    icon: 'fileSearch',
-    name: 'logs',
+    path: '/admin',
+    icon: 'user',
+    name: 'admin',
     access: 'canAdmin',
     component: './Admin/TableList',
   },
